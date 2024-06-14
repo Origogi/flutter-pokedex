@@ -1,17 +1,17 @@
-# pokedex
+# Flutter Pokedex App
 
 A new Flutter project.
 
-## Getting Started
+## State Management Library
 
-This project is a starting point for a Flutter application.
+Riverpod
 
-A few resources to get you started if this is your first Flutter project:
+## 3rd Party Libraries
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Flutter Hooks
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# flutter-pokedex
+### Auto Route
+
+### Freezed
+
+### Google Fonts
