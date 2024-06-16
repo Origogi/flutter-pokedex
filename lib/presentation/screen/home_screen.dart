@@ -4,11 +4,12 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/domain/model/home_tab_type.dart';
-import 'package:pokedex/gen/assets.gen.dart';
 import 'package:pokedex/presentation/theme/colors.dart';
 
 @RoutePage()
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +20,7 @@ class HomeScreen extends StatelessWidget {
           body: Center(
             child: Text('Welcome to the Home Screen!'),
           ),
-          bottomNavigationBar: _CustomBottomNavigationBar(),
+          bottomNavigationBar: const _CustomBottomNavigationBar(),
         ),
       ),
     );
