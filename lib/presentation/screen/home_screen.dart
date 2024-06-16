@@ -4,23 +4,40 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/domain/model/home_tab_type.dart';
+import 'package:pokedex/presentation/tabs/favorites_tab.dart';
+import 'package:pokedex/presentation/tabs/pokedex_tab.dart';
+import 'package:pokedex/presentation/tabs/profile_tab.dart';
+import 'package:pokedex/presentation/tabs/regions_tab.dart';
 import 'package:pokedex/presentation/theme/colors.dart';
 
 @RoutePage()
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends HookConsumerWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final pageController = usePageController();
+
     return Container(
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.white,
-          body: Center(
-            child: Text('Welcome to the Home Screen!'),
+          body: PageView(
+            controller: pageController,
+            physics: const NeverScrollableScrollPhysics(),
+            children: [
+              PokedexTab(),
+              RegionsTab(),
+              FavoritesTab(),
+              ProfileTab()
+            ],
           ),
-          bottomNavigationBar: const _CustomBottomNavigationBar(),
+          bottomNavigationBar:  _CustomBottomNavigationBar(
+            onTabChanged: (tab) {
+              pageController.jumpToPage(tab.index);
+            },
+          ),
         ),
       ),
     );
@@ -28,7 +45,11 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _CustomBottomNavigationBar extends HookConsumerWidget {
-  const _CustomBottomNavigationBar();
+  const _CustomBottomNavigationBar({
+    required this.onTabChanged,
+  });
+
+  final Function(HomeTab) onTabChanged;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -40,6 +61,7 @@ class _CustomBottomNavigationBar extends HookConsumerWidget {
         tab: tab,
         onTap: () {
           selectedTab.value = tab;
+          onTabChanged(tab);
         },
       );
     }).toList();
@@ -78,8 +100,9 @@ class _CustomBottomNavigationBarItem extends ConsumerWidget {
             duration: const Duration(milliseconds: 200),
             firstChild: _SelectedIcon(tab: tab),
             secondChild: _UnselectedIcon(tab: tab),
-            crossFadeState:
-                isSelected ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+            crossFadeState: isSelected
+                ? CrossFadeState.showFirst
+                : CrossFadeState.showSecond,
           ),
         ),
       ),
