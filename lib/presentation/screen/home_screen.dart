@@ -67,23 +67,59 @@ class _CustomBottomNavigationBarItem extends ConsumerWidget {
     return InkWell(
       onTap: onTap,
       child: SizedBox(
-        height: 56,
-        width: 56,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-                width: 26, height: 26, isSelected ? tab.onIcon : tab.offIcon),
-            if (isSelected)
-              Text("Pokedéx",
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelSmall
-                      ?.copyWith(color: Purple)),
-          ],
+        width: 60,
+        height: 60,
+        child: Center(
+          child: AnimatedCrossFade(
+            alignment: Alignment.center,
+            firstCurve: Curves.easeIn,
+            secondCurve: Curves.easeOut,
+            duration: const Duration(milliseconds: 200),
+            firstChild: _SelectedIcon(tab: tab),
+            secondChild: _UnselectedIcon(tab: tab),
+            crossFadeState:
+                isSelected ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+          ),
         ),
       ),
+    );
+  }
+}
+
+class _SelectedIcon extends StatelessWidget {
+  const _SelectedIcon({required this.tab});
+
+  final HomeTab tab;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        SvgPicture.asset(width: 26, height: 26, tab.onIcon),
+        Text(tab.label,
+            style: Theme.of(context)
+                .textTheme
+                .labelSmall
+                ?.copyWith(color: Purple)),
+      ],
+    );
+  }
+}
+
+class _UnselectedIcon extends StatelessWidget {
+  const _UnselectedIcon({required this.tab});
+
+  final HomeTab tab;
+
+  @override
+  Widget build(BuildContext context) {
+    return SvgPicture.asset(
+      width: 26,
+      height: 26,
+      tab.offIcon,
+      fit: BoxFit.fitHeight,
     );
   }
 }
