@@ -14,3 +14,8 @@ class PokemonCardInfo with _$PokemonCardInfo{
   }) = _PokemonCardInfo;
 
 }
+
+// add property firstType
+extension PokemonCardInfoExtension on PokemonCardInfo {
+  PokemonType get mainType => types.first;
+}

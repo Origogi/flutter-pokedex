@@ -6,6 +6,10 @@ class CustomTextTheme extends TextTheme {
   const CustomTextTheme();
 
   @override
+  TextStyle? get titleMedium =>
+      GoogleFonts.poppins().copyWith(fontSize: 21, fontWeight: FontWeight.w600);
+
+  @override
   TextStyle? get labelSmall =>
       GoogleFonts.poppins().copyWith(fontSize: 12, fontWeight: FontWeight.w500);
 }
