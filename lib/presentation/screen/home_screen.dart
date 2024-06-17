@@ -29,7 +29,7 @@ class HomeScreen extends HookConsumerWidget {
             children: [
               PokedexTab(),
               RegionsTab(),
-              FavoritesTab(),
+              const FavoritesTab(),
               ProfileTab()
             ],
           ),
