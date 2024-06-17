@@ -1,6 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/data/network/pokedex_api_client.dart';
 import 'package:pokedex/domain/model/pokemon_card_info.dart';
+import 'package:pokedex/domain/model/pokemon_type.dart';
 
 class PokemonCardInfoRepository {
   final PokedexApiClient _apiClient;
@@ -14,6 +15,9 @@ class PokemonCardInfoRepository {
       name: pokemonData.name,
       imageUrl:
           'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonData.id}.png',
+      types: pokemonData.types
+          .map((e) => PokemonType.valueOf(e.type.name))
+          .toList(),
     );
   }
 }

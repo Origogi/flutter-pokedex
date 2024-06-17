@@ -19,6 +19,7 @@ mixin _$PokemonCardInfo {
   int get pokedexId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
+  List<PokemonType> get types => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PokemonCardInfoCopyWith<PokemonCardInfo> get copyWith =>
@@ -31,7 +32,8 @@ abstract class $PokemonCardInfoCopyWith<$Res> {
           PokemonCardInfo value, $Res Function(PokemonCardInfo) then) =
       _$PokemonCardInfoCopyWithImpl<$Res, PokemonCardInfo>;
   @useResult
-  $Res call({int pokedexId, String name, String imageUrl});
+  $Res call(
+      {int pokedexId, String name, String imageUrl, List<PokemonType> types});
 }
 
 /// @nodoc
@@ -50,6 +52,7 @@ class _$PokemonCardInfoCopyWithImpl<$Res, $Val extends PokemonCardInfo>
     Object? pokedexId = null,
     Object? name = null,
     Object? imageUrl = null,
+    Object? types = null,
   }) {
     return _then(_value.copyWith(
       pokedexId: null == pokedexId
@@ -64,6 +67,10 @@ class _$PokemonCardInfoCopyWithImpl<$Res, $Val extends PokemonCardInfo>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      types: null == types
+          ? _value.types
+          : types // ignore: cast_nullable_to_non_nullable
+              as List<PokemonType>,
     ) as $Val);
   }
 }
@@ -76,7 +83,8 @@ abstract class _$$PokemonCardInfoImplCopyWith<$Res>
       __$$PokemonCardInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int pokedexId, String name, String imageUrl});
+  $Res call(
+      {int pokedexId, String name, String imageUrl, List<PokemonType> types});
 }
 
 /// @nodoc
@@ -93,6 +101,7 @@ class __$$PokemonCardInfoImplCopyWithImpl<$Res>
     Object? pokedexId = null,
     Object? name = null,
     Object? imageUrl = null,
+    Object? types = null,
   }) {
     return _then(_$PokemonCardInfoImpl(
       pokedexId: null == pokedexId
@@ -107,6 +116,10 @@ class __$$PokemonCardInfoImplCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      types: null == types
+          ? _value._types
+          : types // ignore: cast_nullable_to_non_nullable
+              as List<PokemonType>,
     ));
   }
 }
@@ -115,7 +128,11 @@ class __$$PokemonCardInfoImplCopyWithImpl<$Res>
 
 class _$PokemonCardInfoImpl implements _PokemonCardInfo {
   const _$PokemonCardInfoImpl(
-      {required this.pokedexId, required this.name, required this.imageUrl});
+      {required this.pokedexId,
+      required this.name,
+      required this.imageUrl,
+      required final List<PokemonType> types})
+      : _types = types;
 
   @override
   final int pokedexId;
@@ -123,10 +140,17 @@ class _$PokemonCardInfoImpl implements _PokemonCardInfo {
   final String name;
   @override
   final String imageUrl;
+  final List<PokemonType> _types;
+  @override
+  List<PokemonType> get types {
+    if (_types is EqualUnmodifiableListView) return _types;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_types);
+  }
 
   @override
   String toString() {
-    return 'PokemonCardInfo(pokedexId: $pokedexId, name: $name, imageUrl: $imageUrl)';
+    return 'PokemonCardInfo(pokedexId: $pokedexId, name: $name, imageUrl: $imageUrl, types: $types)';
   }
 
   @override
@@ -138,11 +162,13 @@ class _$PokemonCardInfoImpl implements _PokemonCardInfo {
                 other.pokedexId == pokedexId) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl));
+                other.imageUrl == imageUrl) &&
+            const DeepCollectionEquality().equals(other._types, _types));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, pokedexId, name, imageUrl);
+  int get hashCode => Object.hash(runtimeType, pokedexId, name, imageUrl,
+      const DeepCollectionEquality().hash(_types));
 
   @JsonKey(ignore: true)
   @override
@@ -156,7 +182,8 @@ abstract class _PokemonCardInfo implements PokemonCardInfo {
   const factory _PokemonCardInfo(
       {required final int pokedexId,
       required final String name,
-      required final String imageUrl}) = _$PokemonCardInfoImpl;
+      required final String imageUrl,
+      required final List<PokemonType> types}) = _$PokemonCardInfoImpl;
 
   @override
   int get pokedexId;
@@ -164,6 +191,8 @@ abstract class _PokemonCardInfo implements PokemonCardInfo {
   String get name;
   @override
   String get imageUrl;
+  @override
+  List<PokemonType> get types;
   @override
   @JsonKey(ignore: true)
   _$$PokemonCardInfoImplCopyWith<_$PokemonCardInfoImpl> get copyWith =>

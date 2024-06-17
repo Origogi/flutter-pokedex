@@ -12,6 +12,9 @@ _$PokemonDataImpl _$$PokemonDataImplFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       height: (json['height'] as num).toDouble(),
       weight: (json['weight'] as num).toDouble(),
+      types: (json['types'] as List<dynamic>)
+          .map((e) => PokemonTypeData.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$PokemonDataImplToJson(_$PokemonDataImpl instance) =>
@@ -20,4 +23,19 @@ Map<String, dynamic> _$$PokemonDataImplToJson(_$PokemonDataImpl instance) =>
       'name': instance.name,
       'height': instance.height,
       'weight': instance.weight,
+      'types': instance.types,
+    };
+
+_$PokemonTypeDataImpl _$$PokemonTypeDataImplFromJson(
+        Map<String, dynamic> json) =>
+    _$PokemonTypeDataImpl(
+      slot: (json['slot'] as num).toInt(),
+      type: NameUrlData.fromJson(json['type'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$PokemonTypeDataImplToJson(
+        _$PokemonTypeDataImpl instance) =>
+    <String, dynamic>{
+      'slot': instance.slot,
+      'type': instance.type,
     };
