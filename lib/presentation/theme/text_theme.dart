@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextTheme extends TextTheme {
-
   const CustomTextTheme();
 
   @override
   TextStyle? get titleMedium =>
       GoogleFonts.poppins().copyWith(fontSize: 21, fontWeight: FontWeight.w600);
+
+  TextStyle? get titleSmall =>
+      GoogleFonts.poppins().copyWith(fontSize: 12, fontWeight: FontWeight.w600);
 
   @override
   TextStyle? get labelSmall =>
