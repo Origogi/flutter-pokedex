@@ -137,6 +137,29 @@ enum PokemonType {
     };
   }
 
+  String get iconGradientAssetPath {
+    return switch (this) {
+      PokemonType.bug => Assets.icons.iconTypeBugGradient,
+      PokemonType.fire => Assets.icons.iconTypeFireGradient,
+      PokemonType.water => Assets.icons.iconTypeWaterGradient,
+      PokemonType.grass => Assets.icons.iconTypeGrassGradient,
+      PokemonType.electric => Assets.icons.iconTypeElectricGradient,
+      PokemonType.ice => Assets.icons.iconTypeIceGradient,
+      PokemonType.fighting => Assets.icons.iconTypeFightingGradient,
+      PokemonType.poison => Assets.icons.iconTypePoisonGradient,
+      PokemonType.ground => Assets.icons.iconTypeGroundGradient,
+      PokemonType.flying => Assets.icons.iconTypeFlyingGradient,
+      PokemonType.psychic => Assets.icons.iconTypePsychicGradient,
+      PokemonType.rock => Assets.icons.iconTypeRockGradient,
+      PokemonType.ghost => Assets.icons.iconTypeGhostGradient,
+      PokemonType.dark => Assets.icons.iconTypeDarkGradient,
+      PokemonType.dragon => Assets.icons.iconTypeDragonGradient,
+      PokemonType.steel => Assets.icons.iconTypeSteelGradient,
+      PokemonType.fairy => Assets.icons.iconTypeFairyGradient,
+      PokemonType.normal => Assets.icons.iconTypeNormalGradient,
+    };
+  }
+
   static const _map = {
     'fire': PokemonType.fire,
     'water': PokemonType.water,

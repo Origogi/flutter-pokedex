@@ -14,7 +14,7 @@ class PokemonCardInfoRepository {
       pokedexId: pokemonData.id,
       name: pokemonData.name,
       imageUrl:
-          'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonData.id}.png',
+          'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonData.id}.png',
       types: pokemonData.types
           .map((e) => PokemonType.valueOf(e.type.name))
           .toList(),
