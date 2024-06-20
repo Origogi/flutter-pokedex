@@ -41,8 +41,9 @@ class PokemonListViewModel extends StateNotifier<PokemonListViewModelState> {
   }
 }
 
-
-final pokemonListViewModelProvider = StateNotifierProvider.autoDispose<PokemonListViewModel, PokemonListViewModelState>((ref) {
+final pokemonListViewModelProvider = StateNotifierProvider.autoDispose<
+    PokemonListViewModel, PokemonListViewModelState>((ref) {
   final useCase = ref.watch(getPokemonCardInfoListUseCaseProvider);
+  ref.keepAlive();
   return PokemonListViewModel(useCase);
 });
