@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex/domain/model/pokemon_type.dart';
 
 @RoutePage()
 class DetailScreen extends HookConsumerWidget {
@@ -13,7 +12,7 @@ class DetailScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       color: Colors.white,
-      child: PokemonTypeBackground(color: PokemonType.fire.color),
+      child: const PokemonTypeBackground(color: Colors.grey),
     );
   }
 }
