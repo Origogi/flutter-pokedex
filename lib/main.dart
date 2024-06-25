@@ -4,22 +4,21 @@ import 'package:pokedex/presentation/routers.dart';
 import 'package:pokedex/presentation/theme/text_theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({
+    super.key,
+  });
+  final appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    final appRouter = AppRouter();
-
     return ProviderScope(
-      child: MaterialApp.router(
-          routerConfig: appRouter.config(),
-          theme: ThemeData(
-              textTheme: const CustomTextTheme()),
+        child: MaterialApp.router(
+      routerConfig: appRouter.config(),
+      theme: ThemeData(textTheme: const CustomTextTheme()),
     ));
   }
 }
-

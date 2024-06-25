@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/widgets.dart';
 import 'package:pokedex/presentation/screen/detail_screen.dart';
 import 'package:pokedex/presentation/screen/home_screen.dart';
 

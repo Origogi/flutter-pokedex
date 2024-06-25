@@ -19,9 +19,15 @@ class PokemonCardView extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16,),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+      ),
       child: GestureDetector(
-        onTap: () => context.pushRoute(const DetailRoute()),
+        onTap: () => context.pushRoute(
+          DetailRoute(
+            pokdexId: info.pokedexId,
+          ),
+        ),
         child: Card(
           elevation: 0,
           color: info.mainType.bgColor,
