@@ -155,13 +155,13 @@ class _PokemonImage extends HookConsumerWidget {
   Future<Size> _calculateImageDimension() {
     final Completer<Size> completer = Completer();
     final image = Image.network(
-        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/2.gif');
+        info.imageUrl,);
     image.image.resolve(const ImageConfiguration()).addListener(
       ImageStreamListener(
         (image, _) {
           final myImage = image.image;
-          final targetWidth = min(300.0, myImage.width.toDouble() * 2.5);
-          final targetHeight = min(300.0, myImage.height.toDouble() * 2.5);
+          final targetWidth = min(300.0, myImage.width.toDouble() * 3.5);
+          final targetHeight = min(300.0, myImage.height.toDouble() * 3.5);
 
           if (!completer.isCompleted) {
             completer.complete(Size(targetWidth, targetHeight));
