@@ -27,7 +27,7 @@ class PokemonDetailScreenViewModel
         pokedexId: 1,
         name: 'Bulbasaur',
         imageUrl:
-            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
+            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/1.gif',
         types: [
           PokemonType.grass,
           PokemonType.poison,
