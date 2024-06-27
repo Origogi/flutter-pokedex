@@ -14,8 +14,8 @@ class PokemonInfoRepository {
     return PokemonInfo(
       pokedexId: pokemonData.id,
       name: pokemonData.name,
-      imageUrl:
-          'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonData.id}.png',
+      imageUrl: pokemonData.sprites.frontDefault,
+      animatedImageUrl: pokemonData.sprites.other.showdown.frontDefault,
       types: pokemonData.types
           .map((e) => PokemonType.valueOf(e.type.name))
           .toList(),

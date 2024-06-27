@@ -167,3 +167,147 @@ abstract class _NameUrlData implements NameUrlData {
   _$$NameUrlDataImplCopyWith<_$NameUrlDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+ImageUrlSetData _$ImageUrlSetDataFromJson(Map<String, dynamic> json) {
+  return _ImageUrlSetData.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ImageUrlSetData {
+  @JsonKey(name: 'front_default')
+  String get frontDefault => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ImageUrlSetDataCopyWith<ImageUrlSetData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImageUrlSetDataCopyWith<$Res> {
+  factory $ImageUrlSetDataCopyWith(
+          ImageUrlSetData value, $Res Function(ImageUrlSetData) then) =
+      _$ImageUrlSetDataCopyWithImpl<$Res, ImageUrlSetData>;
+  @useResult
+  $Res call({@JsonKey(name: 'front_default') String frontDefault});
+}
+
+/// @nodoc
+class _$ImageUrlSetDataCopyWithImpl<$Res, $Val extends ImageUrlSetData>
+    implements $ImageUrlSetDataCopyWith<$Res> {
+  _$ImageUrlSetDataCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? frontDefault = null,
+  }) {
+    return _then(_value.copyWith(
+      frontDefault: null == frontDefault
+          ? _value.frontDefault
+          : frontDefault // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ImageUrlSetDataImplCopyWith<$Res>
+    implements $ImageUrlSetDataCopyWith<$Res> {
+  factory _$$ImageUrlSetDataImplCopyWith(_$ImageUrlSetDataImpl value,
+          $Res Function(_$ImageUrlSetDataImpl) then) =
+      __$$ImageUrlSetDataImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({@JsonKey(name: 'front_default') String frontDefault});
+}
+
+/// @nodoc
+class __$$ImageUrlSetDataImplCopyWithImpl<$Res>
+    extends _$ImageUrlSetDataCopyWithImpl<$Res, _$ImageUrlSetDataImpl>
+    implements _$$ImageUrlSetDataImplCopyWith<$Res> {
+  __$$ImageUrlSetDataImplCopyWithImpl(
+      _$ImageUrlSetDataImpl _value, $Res Function(_$ImageUrlSetDataImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? frontDefault = null,
+  }) {
+    return _then(_$ImageUrlSetDataImpl(
+      frontDefault: null == frontDefault
+          ? _value.frontDefault
+          : frontDefault // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ImageUrlSetDataImpl implements _ImageUrlSetData {
+  const _$ImageUrlSetDataImpl(
+      {@JsonKey(name: 'front_default') required this.frontDefault});
+
+  factory _$ImageUrlSetDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ImageUrlSetDataImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'front_default')
+  final String frontDefault;
+
+  @override
+  String toString() {
+    return 'ImageUrlSetData(frontDefault: $frontDefault)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ImageUrlSetDataImpl &&
+            (identical(other.frontDefault, frontDefault) ||
+                other.frontDefault == frontDefault));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, frontDefault);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ImageUrlSetDataImplCopyWith<_$ImageUrlSetDataImpl> get copyWith =>
+      __$$ImageUrlSetDataImplCopyWithImpl<_$ImageUrlSetDataImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ImageUrlSetDataImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ImageUrlSetData implements ImageUrlSetData {
+  const factory _ImageUrlSetData(
+      {@JsonKey(name: 'front_default')
+      required final String frontDefault}) = _$ImageUrlSetDataImpl;
+
+  factory _ImageUrlSetData.fromJson(Map<String, dynamic> json) =
+      _$ImageUrlSetDataImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'front_default')
+  String get frontDefault;
+  @override
+  @JsonKey(ignore: true)
+  _$$ImageUrlSetDataImplCopyWith<_$ImageUrlSetDataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

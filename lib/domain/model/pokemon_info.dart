@@ -10,6 +10,7 @@ class PokemonInfo with _$PokemonInfo {
     required int pokedexId,
     required String name,
     required String imageUrl,
+    required String animatedImageUrl,
     required List<PokemonType> types,
   }) = _PokemonInfo;
 }

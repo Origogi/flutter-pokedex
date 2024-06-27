@@ -14,8 +14,7 @@ class GetPokemonDetailInfoUsecase {
     return PokemonDetailInfo(
       pokedexId: pokemonInfo.pokedexId,
       name: pokemonInfo.name,
-      imageUrl:
-          'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/$id.gif',
+      imageUrl: pokemonInfo.animatedImageUrl,
       types: pokemonInfo.types,
     );
   }

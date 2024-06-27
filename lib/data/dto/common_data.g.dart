@@ -17,3 +17,15 @@ Map<String, dynamic> _$$NameUrlDataImplToJson(_$NameUrlDataImpl instance) =>
       'name': instance.name,
       'url': instance.url,
     };
+
+_$ImageUrlSetDataImpl _$$ImageUrlSetDataImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ImageUrlSetDataImpl(
+      frontDefault: json['front_default'] as String,
+    );
+
+Map<String, dynamic> _$$ImageUrlSetDataImplToJson(
+        _$ImageUrlSetDataImpl instance) =>
+    <String, dynamic>{
+      'front_default': instance.frontDefault,
+    };

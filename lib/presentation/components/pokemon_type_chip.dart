@@ -10,12 +10,14 @@ class PokemonTypeChip extends StatelessWidget {
     required this.height,
     required this.fontSize,
     required this.padding,
+    required this.iconLabelGap,
   });
 
   final PokemonType type;
   final double height;
   final double fontSize;
   final EdgeInsets padding;
+  final double iconLabelGap;
 
   factory PokemonTypeChip.medium(PokemonType type) {
     return PokemonTypeChip._(
@@ -23,6 +25,7 @@ class PokemonTypeChip extends StatelessWidget {
       height: 26,
       fontSize: 12,
       padding: const EdgeInsets.symmetric(horizontal: 6),
+      iconLabelGap: 6,
     );
   }
 
@@ -32,6 +35,7 @@ class PokemonTypeChip extends StatelessWidget {
       height: 36,
       fontSize: 14,
       padding: const EdgeInsets.symmetric(horizontal: 14),
+      iconLabelGap: 8,
     );
   }
 
@@ -62,7 +66,7 @@ class PokemonTypeChip extends StatelessWidget {
                   BlendMode.srcIn,
                 )),
           ),
-          const Gap(6),
+          Gap(iconLabelGap),
           Text(
             type.name.capitalizeFirst(),
             style: textTheme.labelLarge?.copyWith(
