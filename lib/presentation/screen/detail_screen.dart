@@ -7,8 +7,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/domain/model/pokemon_detail_info.dart';
+import 'package:pokedex/gen/assets.gen.dart';
 import 'package:pokedex/presentation/viewmodel/pokemon_detail_screen_view_model.dart';
-import 'package:pokedex/presentation/viewmodel/pokemon_list_view_model.dart';
+import 'package:pokedex/util/extentions.dart';
 
 @RoutePage()
 class DetailScreen extends HookConsumerWidget {
@@ -101,6 +102,7 @@ class _Content extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Stack(
           children: [
@@ -116,11 +118,53 @@ class _Content extends StatelessWidget {
               ),
             ),
             Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: _PokemonImage(info: info)),
+                left: 0, right: 0, bottom: 0, child: _PokemonImage(info: info)),
+            Positioned(
+              left: 16,
+              top: 16 + MediaQuery.of(context).padding.top,
+              child: GestureDetector(
+                onTap: () => context.router.back(),
+                child: SvgPicture.asset(
+                  Assets.icons.iconArrowLeft,
+                  width: 40,
+                  height: 40,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Positioned(
+              right: 20,
+              top: 16 + MediaQuery.of(context).padding.top,
+              child: SvgPicture.asset(
+                Assets.icons.iconFavOff2,
+                width: 28,
+                height: 28,
+              ),
+            ),
           ],
+        ),
+        Padding(
+          padding: EdgeInsets.only(
+              left: 16,
+              right: 16,
+              top: 18,
+              bottom: 26 + MediaQuery.of(context).padding.bottom),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                info.name.capitalizeFirst(),
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              Text(
+                info.pokedexId.pokedexIdFormat(),
+                style: Theme.of(context)
+                    .textTheme
+                    .labelMedium
+                    ?.copyWith(color: Colors.black.withOpacity(0.7)),
+              )
+            ],
+          ),
         ),
       ],
     );
@@ -155,13 +199,14 @@ class _PokemonImage extends HookConsumerWidget {
   Future<Size> _calculateImageDimension() {
     final Completer<Size> completer = Completer();
     final image = Image.network(
-        info.imageUrl,);
+      info.imageUrl,
+    );
     image.image.resolve(const ImageConfiguration()).addListener(
       ImageStreamListener(
         (image, _) {
           final myImage = image.image;
-          final targetWidth = min(300.0, myImage.width.toDouble() * 3.5);
-          final targetHeight = min(300.0, myImage.height.toDouble() * 3.5);
+          final targetWidth = min(300.0, myImage.width.toDouble() * 2.5);
+          final targetHeight = min(300.0, myImage.height.toDouble() * 2.5);
 
           if (!completer.isCompleted) {
             completer.complete(Size(targetWidth, targetHeight));

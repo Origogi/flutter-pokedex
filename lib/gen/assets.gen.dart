@@ -10,8 +10,14 @@
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/icon_arrow_left.svg
+  String get iconArrowLeft => 'assets/icons/icon_arrow_left.svg';
+
   /// File path: assets/icons/icon_fav_off.svg
   String get iconFavOff => 'assets/icons/icon_fav_off.svg';
+
+  /// File path: assets/icons/icon_fav_off_2.svg
+  String get iconFavOff2 => 'assets/icons/icon_fav_off_2.svg';
 
   /// File path: assets/icons/icon_fav_on.svg
   String get iconFavOn => 'assets/icons/icon_fav_on.svg';
@@ -157,7 +163,9 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<String> get values => [
+        iconArrowLeft,
         iconFavOff,
+        iconFavOff2,
         iconFavOn,
         iconPokedexOff,
         iconPokedexOn,
