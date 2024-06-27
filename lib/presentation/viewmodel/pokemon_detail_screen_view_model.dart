@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/domain/model/pokemon_detail_info.dart';
 import 'package:pokedex/domain/model/pokemon_type.dart';
+import 'package:pokedex/domain/usecase/get_pokemon_detail_info_usecase.dart';
 
 part 'pokemon_detail_screen_view_model.freezed.dart';
 
@@ -17,22 +18,18 @@ class PokemonDetailScreenViewModel
     extends StateNotifier<PokemonDetailScreenViewModelState> {
   PokemonDetailScreenViewModel(
     int pokedexId,
+    this.useCase,
   ) : super(PokemonDetailScreenViewModelState()) {
     _init(pokedexId);
   }
 
+  final GetPokemonDetailInfoUsecase useCase;
+
   Future<void> _init(int pokedexId) async {
+    final info = await useCase.execute(pokedexId);
+
     state = state.copyWith(
-      pokemonDetailInfo: PokemonDetailInfo(
-        pokedexId: 1,
-        name: 'Bulbasaur',
-        imageUrl:
-            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/$pokedexId.gif',
-        types: [
-          PokemonType.grass,
-          PokemonType.poison,
-        ],
-      ),
+      pokemonDetailInfo: info,
     );
   }
 }
@@ -41,5 +38,6 @@ class PokemonDetailScreenViewModel
 final pokemonDetailScreenViewModelProvider = StateNotifierProvider.autoDispose
     .family<PokemonDetailScreenViewModel, PokemonDetailScreenViewModelState,
         int>((ref, pokedexId) {
-  return PokemonDetailScreenViewModel(pokedexId);
+  final useCase = ref.watch(getPokemonDetailInfoUsecaseProvider);
+  return PokemonDetailScreenViewModel(pokedexId, useCase);
 });

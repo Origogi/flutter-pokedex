@@ -1,16 +1,17 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/data/network/pokedex_api_client.dart';
 import 'package:pokedex/domain/model/pokemon_card_info.dart';
+import 'package:pokedex/domain/model/pokemon_info.dart';
 import 'package:pokedex/domain/model/pokemon_type.dart';
 
-class PokemonCardInfoRepository {
+class PokemonInfoRepository {
   final PokedexApiClient _apiClient;
 
-  PokemonCardInfoRepository(this._apiClient);
+  PokemonInfoRepository(this._apiClient);
 
-  Future<PokemonCardInfo> getPokemonCardInfoById(int id) async {
+  Future<PokemonInfo> getById(int id) async {
     final pokemonData = await _apiClient.getPokemonDataById(id);
-    return PokemonCardInfo(
+    return PokemonInfo(
       pokedexId: pokemonData.id,
       name: pokemonData.name,
       imageUrl:
@@ -22,15 +23,15 @@ class PokemonCardInfoRepository {
   }
 }
 
-final pokemonCardInfoRepositoryProvider =
-    Provider.autoDispose<PokemonCardInfoRepository>((ref) {
+final pokemonInfoRepositoryProvider =
+    Provider.autoDispose<PokemonInfoRepository>((ref) {
   final apiClient = ref.watch(pokedexApiClientProvider);
-  return PokemonCardInfoRepository(apiClient);
+  return PokemonInfoRepository(apiClient);
 });
 
 // For cached data
-final pokemonCardInfoProvider =
-    FutureProvider.autoDispose.family<PokemonCardInfo, int>((ref, id) async {
-  final repository = ref.watch(pokemonCardInfoRepositoryProvider);
-  return repository.getPokemonCardInfoById(id);
+final pokemonInfoProvider =
+    FutureProvider.autoDispose.family<PokemonInfo, int>((ref, id) async {
+  final repository = ref.watch(pokemonInfoRepositoryProvider);
+  return repository.getById(id);
 });

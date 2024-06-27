@@ -58,7 +58,7 @@ class PokemonCardView extends StatelessWidget {
                         children: info.types
                             .mapIndexed((i, type) => Padding(
                                 padding: EdgeInsets.only(left: i == 0 ? 0 : 4),
-                                child: PokemonTypeChip(type: type)))
+                                child: PokemonTypeChip.medium(type)))
                             .toList()),
                   ],
                 ),

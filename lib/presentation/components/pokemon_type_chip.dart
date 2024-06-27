@@ -5,24 +5,47 @@ import 'package:pokedex/domain/model/pokemon_type.dart';
 import 'package:pokedex/util/extentions.dart';
 
 class PokemonTypeChip extends StatelessWidget {
-  const PokemonTypeChip({
-    super.key,
+  const PokemonTypeChip._({
     required this.type,
+    required this.height,
+    required this.fontSize,
+    required this.padding,
   });
 
   final PokemonType type;
+  final double height;
+  final double fontSize;
+  final EdgeInsets padding;
+
+  factory PokemonTypeChip.medium(PokemonType type) {
+    return PokemonTypeChip._(
+      type: type,
+      height: 26,
+      fontSize: 12,
+      padding: const EdgeInsets.symmetric(horizontal: 6),
+    );
+  }
+
+  factory PokemonTypeChip.large(PokemonType type) {
+    return PokemonTypeChip._(
+      type: type,
+      height: 36,
+      fontSize: 14,
+      padding: const EdgeInsets.symmetric(horizontal: 14),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
     return Container(
-      height: 26,
+      height: height,
       decoration: BoxDecoration(
         color: type.color,
         borderRadius: BorderRadius.circular(48),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 6),
+      padding: padding,
       child: Row(
         children: [
           Container(
@@ -42,8 +65,9 @@ class PokemonTypeChip extends StatelessWidget {
           const Gap(6),
           Text(
             type.name.capitalizeFirst(),
-            style: textTheme.titleSmall?.copyWith(
+            style: textTheme.labelLarge?.copyWith(
               color: type.labelColorOnSurface,
+              fontSize: fontSize,
             ),
           ),
         ],
