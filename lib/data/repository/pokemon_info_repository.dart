@@ -1,6 +1,5 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/data/network/pokedex_api_client.dart';
-import 'package:pokedex/domain/model/pokemon_card_info.dart';
 import 'package:pokedex/domain/model/pokemon_info.dart';
 import 'package:pokedex/domain/model/pokemon_type.dart';
 

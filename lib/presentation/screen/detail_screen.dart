@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:async';
 import 'dart:math';
 
@@ -30,7 +32,16 @@ class DetailScreen extends HookConsumerWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: info == null ? _Placeholder() : _Content(info: info),
+      body: AnimatedCrossFade(
+        firstCurve: Curves.easeIn,
+        secondCurve: Curves.easeOut,
+        alignment: Alignment.topCenter,
+        duration: const Duration(milliseconds: 300),
+        firstChild: _Placeholder(),
+        secondChild: info != null ? _Content(info: info) : const SizedBox(),
+        crossFadeState:
+            info == null ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+      ),
     );
   }
 }
@@ -39,7 +50,7 @@ class _Placeholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: [
+      children: const [
         PokemonTypeBackground(
           color: Colors.grey,
         ),
@@ -122,7 +133,10 @@ class _Content extends StatelessWidget {
                 ),
               ),
               Positioned(
-                  left: 0, right: 0, bottom: 0, child: _PokemonImage(info: info)),
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: _PokemonImage(info: info)),
               Positioned(
                 left: 16,
                 top: 16 + MediaQuery.of(context).padding.top,
@@ -198,6 +212,7 @@ class _PokemonImage extends HookConsumerWidget {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
         imageSize.value = await _calculateImageDimension();
       });
+      return null;
     }, []);
 
     return Image.network(

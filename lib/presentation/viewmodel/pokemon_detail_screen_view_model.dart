@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/domain/model/pokemon_detail_info.dart';
-import 'package:pokedex/domain/model/pokemon_type.dart';
 import 'package:pokedex/domain/usecase/get_pokemon_detail_info_usecase.dart';
 
 part 'pokemon_detail_screen_view_model.freezed.dart';
