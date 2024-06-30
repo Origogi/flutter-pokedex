@@ -20,6 +20,7 @@ mixin _$PokemonDetailInfo {
   String get name => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
   List<PokemonType> get types => throw _privateConstructorUsedError;
+  String get desc => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PokemonDetailInfoCopyWith<PokemonDetailInfo> get copyWith =>
@@ -33,7 +34,11 @@ abstract class $PokemonDetailInfoCopyWith<$Res> {
       _$PokemonDetailInfoCopyWithImpl<$Res, PokemonDetailInfo>;
   @useResult
   $Res call(
-      {int pokedexId, String name, String imageUrl, List<PokemonType> types});
+      {int pokedexId,
+      String name,
+      String imageUrl,
+      List<PokemonType> types,
+      String desc});
 }
 
 /// @nodoc
@@ -53,6 +58,7 @@ class _$PokemonDetailInfoCopyWithImpl<$Res, $Val extends PokemonDetailInfo>
     Object? name = null,
     Object? imageUrl = null,
     Object? types = null,
+    Object? desc = null,
   }) {
     return _then(_value.copyWith(
       pokedexId: null == pokedexId
@@ -71,6 +77,10 @@ class _$PokemonDetailInfoCopyWithImpl<$Res, $Val extends PokemonDetailInfo>
           ? _value.types
           : types // ignore: cast_nullable_to_non_nullable
               as List<PokemonType>,
+      desc: null == desc
+          ? _value.desc
+          : desc // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -84,7 +94,11 @@ abstract class _$$PokemonDetailInfoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int pokedexId, String name, String imageUrl, List<PokemonType> types});
+      {int pokedexId,
+      String name,
+      String imageUrl,
+      List<PokemonType> types,
+      String desc});
 }
 
 /// @nodoc
@@ -102,6 +116,7 @@ class __$$PokemonDetailInfoImplCopyWithImpl<$Res>
     Object? name = null,
     Object? imageUrl = null,
     Object? types = null,
+    Object? desc = null,
   }) {
     return _then(_$PokemonDetailInfoImpl(
       pokedexId: null == pokedexId
@@ -120,6 +135,10 @@ class __$$PokemonDetailInfoImplCopyWithImpl<$Res>
           ? _value._types
           : types // ignore: cast_nullable_to_non_nullable
               as List<PokemonType>,
+      desc: null == desc
+          ? _value.desc
+          : desc // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -131,7 +150,8 @@ class _$PokemonDetailInfoImpl implements _PokemonDetailInfo {
       {required this.pokedexId,
       required this.name,
       required this.imageUrl,
-      required final List<PokemonType> types})
+      required final List<PokemonType> types,
+      required this.desc})
       : _types = types;
 
   @override
@@ -149,8 +169,11 @@ class _$PokemonDetailInfoImpl implements _PokemonDetailInfo {
   }
 
   @override
+  final String desc;
+
+  @override
   String toString() {
-    return 'PokemonDetailInfo(pokedexId: $pokedexId, name: $name, imageUrl: $imageUrl, types: $types)';
+    return 'PokemonDetailInfo(pokedexId: $pokedexId, name: $name, imageUrl: $imageUrl, types: $types, desc: $desc)';
   }
 
   @override
@@ -163,12 +186,13 @@ class _$PokemonDetailInfoImpl implements _PokemonDetailInfo {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
-            const DeepCollectionEquality().equals(other._types, _types));
+            const DeepCollectionEquality().equals(other._types, _types) &&
+            (identical(other.desc, desc) || other.desc == desc));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, pokedexId, name, imageUrl,
-      const DeepCollectionEquality().hash(_types));
+      const DeepCollectionEquality().hash(_types), desc);
 
   @JsonKey(ignore: true)
   @override
@@ -183,7 +207,8 @@ abstract class _PokemonDetailInfo implements PokemonDetailInfo {
       {required final int pokedexId,
       required final String name,
       required final String imageUrl,
-      required final List<PokemonType> types}) = _$PokemonDetailInfoImpl;
+      required final List<PokemonType> types,
+      required final String desc}) = _$PokemonDetailInfoImpl;
 
   @override
   int get pokedexId;
@@ -193,6 +218,8 @@ abstract class _PokemonDetailInfo implements PokemonDetailInfo {
   String get imageUrl;
   @override
   List<PokemonType> get types;
+  @override
+  String get desc;
   @override
   @JsonKey(ignore: true)
   _$$PokemonDetailInfoImplCopyWith<_$PokemonDetailInfoImpl> get copyWith =>

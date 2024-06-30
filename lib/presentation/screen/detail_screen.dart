@@ -188,6 +188,18 @@ class _Content extends StatelessWidget {
                             padding: EdgeInsets.only(left: i == 0 ? 0 : 7),
                             child: PokemonTypeChip.large(type)))
                         .toList()),
+                const Gap(24),
+                Text(
+                  info.desc,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Colors.black.withOpacity(0.7),
+                      ),
+                ),
+                const Gap(24),
+                Divider(
+                  color: Colors.black.withOpacity(0.05),
+                  height: 1,
+                ),
               ],
             ),
           ),

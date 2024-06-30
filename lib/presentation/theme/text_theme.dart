@@ -27,4 +27,8 @@ class CustomTextTheme extends TextTheme {
   @override
   TextStyle? get labelSmall =>
       GoogleFonts.poppins().copyWith(fontSize: 12, fontWeight: FontWeight.w500);
+
+  @override
+  TextStyle? get bodyMedium =>
+      GoogleFonts.poppins().copyWith(fontSize: 14, fontWeight: FontWeight.w400);
 }
