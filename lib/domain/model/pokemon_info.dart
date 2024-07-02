@@ -14,5 +14,6 @@ class PokemonInfo with _$PokemonInfo {
     required List<PokemonType> types,
     required double height,
     required double weight,
+    required List<String> abilities,
   }) = _PokemonInfo;
 }

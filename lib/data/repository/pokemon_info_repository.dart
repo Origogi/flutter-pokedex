@@ -20,6 +20,7 @@ class PokemonInfoRepository {
       types: pokemonData.types
           .map((e) => PokemonType.valueOf(e.type.name))
           .toList(),
+      abilities: pokemonData.abilities.map((e) => e.ability.name).toList(),
     );
   }
 }

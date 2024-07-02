@@ -13,6 +13,10 @@ class PokemonDetailInfo with _$PokemonDetailInfo {
     required String imageUrl,
     required List<PokemonType> types,
     required String desc,
+    required String category,
+    required double height,
+    required double weight,
+    required List<String> abilities,  
   }) = _PokemonDetailInfo;
 }
 

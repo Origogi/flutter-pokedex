@@ -23,6 +23,7 @@ mixin _$PokemonInfo {
   List<PokemonType> get types => throw _privateConstructorUsedError;
   double get height => throw _privateConstructorUsedError;
   double get weight => throw _privateConstructorUsedError;
+  List<String> get abilities => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PokemonInfoCopyWith<PokemonInfo> get copyWith =>
@@ -42,7 +43,8 @@ abstract class $PokemonInfoCopyWith<$Res> {
       String animatedImageUrl,
       List<PokemonType> types,
       double height,
-      double weight});
+      double weight,
+      List<String> abilities});
 }
 
 /// @nodoc
@@ -65,6 +67,7 @@ class _$PokemonInfoCopyWithImpl<$Res, $Val extends PokemonInfo>
     Object? types = null,
     Object? height = null,
     Object? weight = null,
+    Object? abilities = null,
   }) {
     return _then(_value.copyWith(
       pokedexId: null == pokedexId
@@ -95,6 +98,10 @@ class _$PokemonInfoCopyWithImpl<$Res, $Val extends PokemonInfo>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as double,
+      abilities: null == abilities
+          ? _value.abilities
+          : abilities // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -114,7 +121,8 @@ abstract class _$$PokemonInfoImplCopyWith<$Res>
       String animatedImageUrl,
       List<PokemonType> types,
       double height,
-      double weight});
+      double weight,
+      List<String> abilities});
 }
 
 /// @nodoc
@@ -135,6 +143,7 @@ class __$$PokemonInfoImplCopyWithImpl<$Res>
     Object? types = null,
     Object? height = null,
     Object? weight = null,
+    Object? abilities = null,
   }) {
     return _then(_$PokemonInfoImpl(
       pokedexId: null == pokedexId
@@ -165,6 +174,10 @@ class __$$PokemonInfoImplCopyWithImpl<$Res>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as double,
+      abilities: null == abilities
+          ? _value._abilities
+          : abilities // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -179,8 +192,10 @@ class _$PokemonInfoImpl implements _PokemonInfo {
       required this.animatedImageUrl,
       required final List<PokemonType> types,
       required this.height,
-      required this.weight})
-      : _types = types;
+      required this.weight,
+      required final List<String> abilities})
+      : _types = types,
+        _abilities = abilities;
 
   @override
   final int pokedexId;
@@ -202,10 +217,17 @@ class _$PokemonInfoImpl implements _PokemonInfo {
   final double height;
   @override
   final double weight;
+  final List<String> _abilities;
+  @override
+  List<String> get abilities {
+    if (_abilities is EqualUnmodifiableListView) return _abilities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_abilities);
+  }
 
   @override
   String toString() {
-    return 'PokemonInfo(pokedexId: $pokedexId, name: $name, imageUrl: $imageUrl, animatedImageUrl: $animatedImageUrl, types: $types, height: $height, weight: $weight)';
+    return 'PokemonInfo(pokedexId: $pokedexId, name: $name, imageUrl: $imageUrl, animatedImageUrl: $animatedImageUrl, types: $types, height: $height, weight: $weight, abilities: $abilities)';
   }
 
   @override
@@ -222,7 +244,9 @@ class _$PokemonInfoImpl implements _PokemonInfo {
                 other.animatedImageUrl == animatedImageUrl) &&
             const DeepCollectionEquality().equals(other._types, _types) &&
             (identical(other.height, height) || other.height == height) &&
-            (identical(other.weight, weight) || other.weight == weight));
+            (identical(other.weight, weight) || other.weight == weight) &&
+            const DeepCollectionEquality()
+                .equals(other._abilities, _abilities));
   }
 
   @override
@@ -234,7 +258,8 @@ class _$PokemonInfoImpl implements _PokemonInfo {
       animatedImageUrl,
       const DeepCollectionEquality().hash(_types),
       height,
-      weight);
+      weight,
+      const DeepCollectionEquality().hash(_abilities));
 
   @JsonKey(ignore: true)
   @override
@@ -251,7 +276,8 @@ abstract class _PokemonInfo implements PokemonInfo {
       required final String animatedImageUrl,
       required final List<PokemonType> types,
       required final double height,
-      required final double weight}) = _$PokemonInfoImpl;
+      required final double weight,
+      required final List<String> abilities}) = _$PokemonInfoImpl;
 
   @override
   int get pokedexId;
@@ -267,6 +293,8 @@ abstract class _PokemonInfo implements PokemonInfo {
   double get height;
   @override
   double get weight;
+  @override
+  List<String> get abilities;
   @override
   @JsonKey(ignore: true)
   _$$PokemonInfoImplCopyWith<_$PokemonInfoImpl> get copyWith =>

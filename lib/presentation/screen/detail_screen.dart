@@ -12,6 +12,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/domain/model/pokemon_detail_info.dart';
 import 'package:pokedex/gen/assets.gen.dart';
+import 'package:pokedex/presentation/components/pokemon_status_group_view.dart';
 import 'package:pokedex/presentation/components/pokemon_type_chip.dart';
 import 'package:pokedex/presentation/viewmodel/pokemon_detail_screen_view_model.dart';
 import 'package:pokedex/util/extentions.dart';
@@ -200,6 +201,8 @@ class _Content extends StatelessWidget {
                   color: Colors.black.withOpacity(0.05),
                   height: 1,
                 ),
+                const Gap(24),
+                PokemonStatusGroupView(info:  info),
               ],
             ),
           ),

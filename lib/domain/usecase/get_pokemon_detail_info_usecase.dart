@@ -3,6 +3,7 @@ import 'package:pokedex/data/dto/pokemon_species_data.dart';
 import 'package:pokedex/data/repository/pokemon_info_repository.dart';
 import 'package:pokedex/data/repository/pokemon_species_info_repository.dart';
 import 'package:pokedex/domain/model/pokemon_detail_info.dart';
+import 'package:pokedex/util/extentions.dart';
 
 class GetPokemonDetailInfoUsecase {
   GetPokemonDetailInfoUsecase(
@@ -21,7 +22,13 @@ class GetPokemonDetailInfoUsecase {
       name: pokemonInfo.name,
       imageUrl: pokemonInfo.animatedImageUrl,
       types: pokemonInfo.types,
-      desc : pokemonSpeciesInfo.desc,
+      desc: pokemonSpeciesInfo.desc,
+      category: pokemonSpeciesInfo.category.split(" ")[0],
+      height: (pokemonInfo.height) / 10,
+      weight: (pokemonInfo.weight) / 10,
+      abilities: pokemonInfo.abilities
+          .map((e) => e.capitalizeFirst().replaceAll("-", " "))
+          .toList(),
     );
   }
 }

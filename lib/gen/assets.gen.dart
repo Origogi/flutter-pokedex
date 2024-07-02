@@ -10,8 +10,14 @@
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/icon_ability.svg
+  String get iconAbility => 'assets/icons/icon_ability.svg';
+
   /// File path: assets/icons/icon_arrow_left.svg
   String get iconArrowLeft => 'assets/icons/icon_arrow_left.svg';
+
+  /// File path: assets/icons/icon_category.svg
+  String get iconCategory => 'assets/icons/icon_category.svg';
 
   /// File path: assets/icons/icon_fav_off.svg
   String get iconFavOff => 'assets/icons/icon_fav_off.svg';
@@ -21,6 +27,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/icon_fav_on.svg
   String get iconFavOn => 'assets/icons/icon_fav_on.svg';
+
+  /// File path: assets/icons/icon_height.svg
+  String get iconHeight => 'assets/icons/icon_height.svg';
 
   /// File path: assets/icons/icon_pokedex_off.svg
   String get iconPokedexOff => 'assets/icons/icon_pokedex_off.svg';
@@ -161,12 +170,18 @@ class $AssetsIconsGen {
   String get iconTypeWaterGradient =>
       'assets/icons/icon_type_water_gradient.svg';
 
+  /// File path: assets/icons/icon_weight.svg
+  String get iconWeight => 'assets/icons/icon_weight.svg';
+
   /// List of all assets
   List<String> get values => [
+        iconAbility,
         iconArrowLeft,
+        iconCategory,
         iconFavOff,
         iconFavOff2,
         iconFavOn,
+        iconHeight,
         iconPokedexOff,
         iconPokedexOn,
         iconProfileOff,
@@ -208,7 +223,8 @@ class $AssetsIconsGen {
         iconTypeSteel,
         iconTypeSteelGradient,
         iconTypeWater,
-        iconTypeWaterGradient
+        iconTypeWaterGradient,
+        iconWeight
       ];
 }
 
