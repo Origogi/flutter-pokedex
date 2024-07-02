@@ -26,6 +26,7 @@ mixin _$PokemonData {
   double get weight => throw _privateConstructorUsedError;
   List<PokemonTypeData> get types => throw _privateConstructorUsedError;
   SpritesData get sprites => throw _privateConstructorUsedError;
+  List<PokemonAbilityData> get abilities => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +46,8 @@ abstract class $PokemonDataCopyWith<$Res> {
       double height,
       double weight,
       List<PokemonTypeData> types,
-      SpritesData sprites});
+      SpritesData sprites,
+      List<PokemonAbilityData> abilities});
 
   $SpritesDataCopyWith<$Res> get sprites;
 }
@@ -69,6 +71,7 @@ class _$PokemonDataCopyWithImpl<$Res, $Val extends PokemonData>
     Object? weight = null,
     Object? types = null,
     Object? sprites = null,
+    Object? abilities = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -95,6 +98,10 @@ class _$PokemonDataCopyWithImpl<$Res, $Val extends PokemonData>
           ? _value.sprites
           : sprites // ignore: cast_nullable_to_non_nullable
               as SpritesData,
+      abilities: null == abilities
+          ? _value.abilities
+          : abilities // ignore: cast_nullable_to_non_nullable
+              as List<PokemonAbilityData>,
     ) as $Val);
   }
 
@@ -121,7 +128,8 @@ abstract class _$$PokemonDataImplCopyWith<$Res>
       double height,
       double weight,
       List<PokemonTypeData> types,
-      SpritesData sprites});
+      SpritesData sprites,
+      List<PokemonAbilityData> abilities});
 
   @override
   $SpritesDataCopyWith<$Res> get sprites;
@@ -144,6 +152,7 @@ class __$$PokemonDataImplCopyWithImpl<$Res>
     Object? weight = null,
     Object? types = null,
     Object? sprites = null,
+    Object? abilities = null,
   }) {
     return _then(_$PokemonDataImpl(
       id: null == id
@@ -170,6 +179,10 @@ class __$$PokemonDataImplCopyWithImpl<$Res>
           ? _value.sprites
           : sprites // ignore: cast_nullable_to_non_nullable
               as SpritesData,
+      abilities: null == abilities
+          ? _value._abilities
+          : abilities // ignore: cast_nullable_to_non_nullable
+              as List<PokemonAbilityData>,
     ));
   }
 }
@@ -183,8 +196,10 @@ class _$PokemonDataImpl implements _PokemonData {
       required this.height,
       required this.weight,
       required final List<PokemonTypeData> types,
-      required this.sprites})
-      : _types = types;
+      required this.sprites,
+      required final List<PokemonAbilityData> abilities})
+      : _types = types,
+        _abilities = abilities;
 
   factory _$PokemonDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$PokemonDataImplFromJson(json);
@@ -207,10 +222,17 @@ class _$PokemonDataImpl implements _PokemonData {
 
   @override
   final SpritesData sprites;
+  final List<PokemonAbilityData> _abilities;
+  @override
+  List<PokemonAbilityData> get abilities {
+    if (_abilities is EqualUnmodifiableListView) return _abilities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_abilities);
+  }
 
   @override
   String toString() {
-    return 'PokemonData(id: $id, name: $name, height: $height, weight: $weight, types: $types, sprites: $sprites)';
+    return 'PokemonData(id: $id, name: $name, height: $height, weight: $weight, types: $types, sprites: $sprites, abilities: $abilities)';
   }
 
   @override
@@ -223,13 +245,22 @@ class _$PokemonDataImpl implements _PokemonData {
             (identical(other.height, height) || other.height == height) &&
             (identical(other.weight, weight) || other.weight == weight) &&
             const DeepCollectionEquality().equals(other._types, _types) &&
-            (identical(other.sprites, sprites) || other.sprites == sprites));
+            (identical(other.sprites, sprites) || other.sprites == sprites) &&
+            const DeepCollectionEquality()
+                .equals(other._abilities, _abilities));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, height, weight,
-      const DeepCollectionEquality().hash(_types), sprites);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      height,
+      weight,
+      const DeepCollectionEquality().hash(_types),
+      sprites,
+      const DeepCollectionEquality().hash(_abilities));
 
   @JsonKey(ignore: true)
   @override
@@ -252,7 +283,8 @@ abstract class _PokemonData implements PokemonData {
       required final double height,
       required final double weight,
       required final List<PokemonTypeData> types,
-      required final SpritesData sprites}) = _$PokemonDataImpl;
+      required final SpritesData sprites,
+      required final List<PokemonAbilityData> abilities}) = _$PokemonDataImpl;
 
   factory _PokemonData.fromJson(Map<String, dynamic> json) =
       _$PokemonDataImpl.fromJson;
@@ -269,6 +301,8 @@ abstract class _PokemonData implements PokemonData {
   List<PokemonTypeData> get types;
   @override
   SpritesData get sprites;
+  @override
+  List<PokemonAbilityData> get abilities;
   @override
   @JsonKey(ignore: true)
   _$$PokemonDataImplCopyWith<_$PokemonDataImpl> get copyWith =>
@@ -765,5 +799,156 @@ abstract class _OtherData implements OtherData {
   @override
   @JsonKey(ignore: true)
   _$$OtherDataImplCopyWith<_$OtherDataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PokemonAbilityData _$PokemonAbilityDataFromJson(Map<String, dynamic> json) {
+  return _PokemonAbilityData.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PokemonAbilityData {
+  NameUrlData get ability => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PokemonAbilityDataCopyWith<PokemonAbilityData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PokemonAbilityDataCopyWith<$Res> {
+  factory $PokemonAbilityDataCopyWith(
+          PokemonAbilityData value, $Res Function(PokemonAbilityData) then) =
+      _$PokemonAbilityDataCopyWithImpl<$Res, PokemonAbilityData>;
+  @useResult
+  $Res call({NameUrlData ability});
+
+  $NameUrlDataCopyWith<$Res> get ability;
+}
+
+/// @nodoc
+class _$PokemonAbilityDataCopyWithImpl<$Res, $Val extends PokemonAbilityData>
+    implements $PokemonAbilityDataCopyWith<$Res> {
+  _$PokemonAbilityDataCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? ability = null,
+  }) {
+    return _then(_value.copyWith(
+      ability: null == ability
+          ? _value.ability
+          : ability // ignore: cast_nullable_to_non_nullable
+              as NameUrlData,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NameUrlDataCopyWith<$Res> get ability {
+    return $NameUrlDataCopyWith<$Res>(_value.ability, (value) {
+      return _then(_value.copyWith(ability: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$PokemonAbilityDataImplCopyWith<$Res>
+    implements $PokemonAbilityDataCopyWith<$Res> {
+  factory _$$PokemonAbilityDataImplCopyWith(_$PokemonAbilityDataImpl value,
+          $Res Function(_$PokemonAbilityDataImpl) then) =
+      __$$PokemonAbilityDataImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({NameUrlData ability});
+
+  @override
+  $NameUrlDataCopyWith<$Res> get ability;
+}
+
+/// @nodoc
+class __$$PokemonAbilityDataImplCopyWithImpl<$Res>
+    extends _$PokemonAbilityDataCopyWithImpl<$Res, _$PokemonAbilityDataImpl>
+    implements _$$PokemonAbilityDataImplCopyWith<$Res> {
+  __$$PokemonAbilityDataImplCopyWithImpl(_$PokemonAbilityDataImpl _value,
+      $Res Function(_$PokemonAbilityDataImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? ability = null,
+  }) {
+    return _then(_$PokemonAbilityDataImpl(
+      ability: null == ability
+          ? _value.ability
+          : ability // ignore: cast_nullable_to_non_nullable
+              as NameUrlData,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PokemonAbilityDataImpl implements _PokemonAbilityData {
+  const _$PokemonAbilityDataImpl({required this.ability});
+
+  factory _$PokemonAbilityDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PokemonAbilityDataImplFromJson(json);
+
+  @override
+  final NameUrlData ability;
+
+  @override
+  String toString() {
+    return 'PokemonAbilityData(ability: $ability)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PokemonAbilityDataImpl &&
+            (identical(other.ability, ability) || other.ability == ability));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, ability);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PokemonAbilityDataImplCopyWith<_$PokemonAbilityDataImpl> get copyWith =>
+      __$$PokemonAbilityDataImplCopyWithImpl<_$PokemonAbilityDataImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PokemonAbilityDataImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PokemonAbilityData implements PokemonAbilityData {
+  const factory _PokemonAbilityData({required final NameUrlData ability}) =
+      _$PokemonAbilityDataImpl;
+
+  factory _PokemonAbilityData.fromJson(Map<String, dynamic> json) =
+      _$PokemonAbilityDataImpl.fromJson;
+
+  @override
+  NameUrlData get ability;
+  @override
+  @JsonKey(ignore: true)
+  _$$PokemonAbilityDataImplCopyWith<_$PokemonAbilityDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

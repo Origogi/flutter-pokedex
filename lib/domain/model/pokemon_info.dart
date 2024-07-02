@@ -12,5 +12,7 @@ class PokemonInfo with _$PokemonInfo {
     required String imageUrl,
     required String animatedImageUrl,
     required List<PokemonType> types,
+    required double height,
+    required double weight,
   }) = _PokemonInfo;
 }

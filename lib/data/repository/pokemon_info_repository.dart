@@ -14,6 +14,8 @@ class PokemonInfoRepository {
       pokedexId: pokemonData.id,
       name: pokemonData.name,
       imageUrl: pokemonData.sprites.frontDefault,
+      weight: pokemonData.weight,
+      height: pokemonData.height,
       animatedImageUrl: pokemonData.sprites.other.showdown.frontDefault,
       types: pokemonData.types
           .map((e) => PokemonType.valueOf(e.type.name))

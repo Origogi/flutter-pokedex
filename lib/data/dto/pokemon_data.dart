@@ -13,6 +13,7 @@ class PokemonData with _$PokemonData {
     required double weight,
     required List<PokemonTypeData> types,
     required SpritesData sprites,
+    required List<PokemonAbilityData> abilities,
   }) = _PokemonData;
 
   factory PokemonData.fromJson(Map<String, dynamic> json) =>
@@ -52,4 +53,14 @@ class OtherData with _$OtherData {
 
   factory OtherData.fromJson(Map<String, dynamic> json) =>
       _$OtherDataFromJson(json);
+}
+
+@freezed
+class PokemonAbilityData with _$PokemonAbilityData {
+  const factory PokemonAbilityData({
+    required NameUrlData ability,
+  }) = _PokemonAbilityData;
+
+  factory PokemonAbilityData.fromJson(Map<String, dynamic> json) =>
+      _$PokemonAbilityDataFromJson(json);
 }

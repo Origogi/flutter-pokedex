@@ -16,6 +16,9 @@ _$PokemonDataImpl _$$PokemonDataImplFromJson(Map<String, dynamic> json) =>
           .map((e) => PokemonTypeData.fromJson(e as Map<String, dynamic>))
           .toList(),
       sprites: SpritesData.fromJson(json['sprites'] as Map<String, dynamic>),
+      abilities: (json['abilities'] as List<dynamic>)
+          .map((e) => PokemonAbilityData.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$PokemonDataImplToJson(_$PokemonDataImpl instance) =>
@@ -26,6 +29,7 @@ Map<String, dynamic> _$$PokemonDataImplToJson(_$PokemonDataImpl instance) =>
       'weight': instance.weight,
       'types': instance.types,
       'sprites': instance.sprites,
+      'abilities': instance.abilities,
     };
 
 _$PokemonTypeDataImpl _$$PokemonTypeDataImplFromJson(
@@ -63,4 +67,16 @@ _$OtherDataImpl _$$OtherDataImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$OtherDataImplToJson(_$OtherDataImpl instance) =>
     <String, dynamic>{
       'showdown': instance.showdown,
+    };
+
+_$PokemonAbilityDataImpl _$$PokemonAbilityDataImplFromJson(
+        Map<String, dynamic> json) =>
+    _$PokemonAbilityDataImpl(
+      ability: NameUrlData.fromJson(json['ability'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$PokemonAbilityDataImplToJson(
+        _$PokemonAbilityDataImpl instance) =>
+    <String, dynamic>{
+      'ability': instance.ability,
     };
