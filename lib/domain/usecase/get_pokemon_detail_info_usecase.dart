@@ -1,5 +1,4 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:pokedex/data/dto/pokemon_species_data.dart';
 import 'package:pokedex/data/repository/pokemon_info_repository.dart';
 import 'package:pokedex/data/repository/pokemon_species_info_repository.dart';
 import 'package:pokedex/domain/model/pokemon_detail_info.dart';
@@ -17,6 +16,10 @@ class GetPokemonDetailInfoUsecase {
     final pokemonInfo = await pokemonInfoRepository.getById(id);
     final pokemonSpeciesInfo = await pokemonSpeciesInfoRepository.getById(id);
 
+    final genderRateFraction = pokemonSpeciesInfo.genderRate != null
+        ? (8 - pokemonSpeciesInfo.genderRate!) / 8
+        : null;
+
     return PokemonDetailInfo(
       pokedexId: pokemonInfo.pokedexId,
       name: pokemonInfo.name,
@@ -29,6 +32,7 @@ class GetPokemonDetailInfoUsecase {
       abilities: pokemonInfo.abilities
           .map((e) => e.capitalizeFirst().replaceAll("-", " "))
           .toList(),
+      genderRate: genderRateFraction,
     );
   }
 }
