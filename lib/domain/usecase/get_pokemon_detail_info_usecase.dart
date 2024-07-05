@@ -16,9 +16,6 @@ class GetPokemonDetailInfoUsecase {
     final pokemonInfo = await pokemonInfoRepository.getById(id);
     final pokemonSpeciesInfo = await pokemonSpeciesInfoRepository.getById(id);
 
-    final genderRateFraction = pokemonSpeciesInfo.genderRate != null
-        ? (8 - pokemonSpeciesInfo.genderRate!) / 8
-        : null;
 
     return PokemonDetailInfo(
       pokedexId: pokemonInfo.pokedexId,
@@ -32,7 +29,7 @@ class GetPokemonDetailInfoUsecase {
       abilities: pokemonInfo.abilities
           .map((e) => e.capitalizeFirst().replaceAll("-", " "))
           .toList(),
-      genderRate: genderRateFraction,
+      genderRate: pokemonSpeciesInfo.genderRate,
     );
   }
 }

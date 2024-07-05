@@ -28,8 +28,14 @@ class $AssetsIconsGen {
   /// File path: assets/icons/icon_fav_on.svg
   String get iconFavOn => 'assets/icons/icon_fav_on.svg';
 
+  /// File path: assets/icons/icon_female.svg
+  String get iconFemale => 'assets/icons/icon_female.svg';
+
   /// File path: assets/icons/icon_height.svg
   String get iconHeight => 'assets/icons/icon_height.svg';
+
+  /// File path: assets/icons/icon_male.svg
+  String get iconMale => 'assets/icons/icon_male.svg';
 
   /// File path: assets/icons/icon_pokedex_off.svg
   String get iconPokedexOff => 'assets/icons/icon_pokedex_off.svg';
@@ -181,7 +187,9 @@ class $AssetsIconsGen {
         iconFavOff,
         iconFavOff2,
         iconFavOn,
+        iconFemale,
         iconHeight,
+        iconMale,
         iconPokedexOff,
         iconPokedexOn,
         iconProfileOff,

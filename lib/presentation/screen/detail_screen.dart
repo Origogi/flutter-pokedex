@@ -205,7 +205,9 @@ class _Content extends StatelessWidget {
                 const Gap(24),
                 PokemonStatusGroupView(info: info),
                 const Gap(28),
-                PokemonGenderRatioView()
+                PokemonGenderRatioView(
+                  genderRate: info.genderRate,
+                )
               ],
             ),
           ),
