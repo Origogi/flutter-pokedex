@@ -20,23 +20,80 @@ class PokemonGenderRatioView extends StatelessWidget {
         if (genderRate == null)
           const _GenderlessView()
         else
-          _RatioView(ratio: genderRate!,),
+          const _GenderlessView()
+
+        // _RatioView(ratio: genderRate!,),
       ],
     );
   }
 }
 
 class _GenderlessView extends StatelessWidget {
-  const _GenderlessView({
-    super.key,
-  });
+  const _GenderlessView();
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      "Genderless",
-      style: Theme.of(context).textTheme.labelMedium,
+    return Column(
+      children: [
+        const _StripedProgressBar(),
+        const Gap(6),
+        Text(
+          "Unknown",
+          style: Theme.of(context).textTheme.labelSmall,
+        ),
+      ],
     );
+  }
+}
+
+class _StripedProgressBar extends StatelessWidget {
+  const _StripedProgressBar();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 8,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+        border: Border.all(color: Colors.black.withOpacity(0.1), width: 1),
+      ),
+      child: CustomPaint(
+        size: const Size(double.infinity, double.infinity),
+        painter: StripedProgressBarPainter(),
+      ),
+    );
+  }
+}
+
+class StripedProgressBarPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    const stripeColor = Color(0xFFE6E6E6);
+    const stripeWidth = 1.0;
+    const stripeSpacing = 15.0;
+    final totalWidth = size.width;
+
+    double currentX = -stripeWidth;
+    final paint = Paint()
+      ..color = stripeColor
+      ..strokeWidth = stripeWidth;
+
+    while (currentX < totalWidth) {
+      if (currentX > 0) {
+        canvas.drawLine(
+          Offset(currentX, 0),
+          Offset(currentX - 5, size.height),
+          paint,
+        );
+      }
+
+      currentX += (stripeWidth + stripeSpacing);
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
   }
 }
 
