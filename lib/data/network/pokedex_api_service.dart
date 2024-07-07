@@ -17,7 +17,7 @@ abstract class PokedexApiService {
   Future<PokemonSpeciesData> getPokemonSpecies(@Path('id') int id);
 }
 
-final pokedexApiService = Provider.autoDispose<PokedexApiService>((ref) {
+final pokedexApiService = Provider((ref) {
   final dio = Dio();
   return PokedexApiService(dio);
 });

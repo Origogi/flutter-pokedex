@@ -37,3 +37,9 @@ final pokemonSpeciesInfoRepositoryProvider =
   final apiClient = ref.watch(pokedexApiClientProvider);
   return PokemonSpeciesInfoRepository(apiClient);
 });
+
+final pokemonSpeciesInfoProvider =
+    FutureProvider.autoDispose.family<PokemonSpeciesInfo, int>((ref, id) async {
+  final repository = ref.watch(pokemonSpeciesInfoRepositoryProvider);
+  return repository.getById(id);
+});

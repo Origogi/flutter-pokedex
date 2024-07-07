@@ -17,15 +17,16 @@ class PokemonDetailScreenViewModel
     extends StateNotifier<PokemonDetailScreenViewModelState> {
   PokemonDetailScreenViewModel(
     int pokedexId,
-    this.useCase,
+    this.ref,
   ) : super(PokemonDetailScreenViewModelState()) {
     _init(pokedexId);
   }
 
-  final GetPokemonDetailInfoUsecase useCase;
+  final Ref ref;
+
 
   Future<void> _init(int pokedexId) async {
-    final info = await useCase.execute(pokedexId);
+    final info = await ref.read(pokemonDetailInfoUseCaseProvider(pokedexId).future);
 
     state = state.copyWith(
       pokemonDetailInfo: info,
@@ -34,9 +35,9 @@ class PokemonDetailScreenViewModel
 }
 
 // provider with family auto dispose
-final pokemonDetailScreenViewModelProvider = StateNotifierProvider.autoDispose
+final pokemonDetailScreenViewModelProvider = StateNotifierProvider
+    // .autoDispose  주석을 제거하면 캐쉬가 동작하지 않는다.
     .family<PokemonDetailScreenViewModel, PokemonDetailScreenViewModelState,
         int>((ref, pokedexId) {
-  final useCase = ref.watch(getPokemonDetailInfoUsecaseProvider);
-  return PokemonDetailScreenViewModel(pokedexId, useCase);
+  return PokemonDetailScreenViewModel(pokedexId, ref);
 });

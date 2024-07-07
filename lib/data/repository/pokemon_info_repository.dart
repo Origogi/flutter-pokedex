@@ -26,14 +26,14 @@ class PokemonInfoRepository {
 }
 
 final pokemonInfoRepositoryProvider =
-    Provider.autoDispose<PokemonInfoRepository>((ref) {
+    Provider<PokemonInfoRepository>((ref) {
   final apiClient = ref.watch(pokedexApiClientProvider);
   return PokemonInfoRepository(apiClient);
 });
 
 // For cached data
 final pokemonInfoProvider =
-    FutureProvider.autoDispose.family<PokemonInfo, int>((ref, id) async {
+    FutureProvider.family<PokemonInfo, int>((ref, id) async {
   final repository = ref.watch(pokemonInfoRepositoryProvider);
   return repository.getById(id);
 });

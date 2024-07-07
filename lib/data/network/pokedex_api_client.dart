@@ -24,7 +24,7 @@ class PokedexApiClient {
 
 }
 
-final pokedexApiClientProvider = Provider.autoDispose<PokedexApiClient>((ref) {
+final pokedexApiClientProvider = Provider((ref) {
   final apiService = ref.watch(pokedexApiService);
   return PokedexApiClient(apiService);
 });
