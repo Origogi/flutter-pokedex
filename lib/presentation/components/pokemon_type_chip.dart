@@ -49,8 +49,10 @@ class PokemonTypeChip extends StatelessWidget {
         color: type.color,
         borderRadius: BorderRadius.circular(48),
       ),
+      alignment: Alignment.center,
       padding: padding,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
             height: 20,

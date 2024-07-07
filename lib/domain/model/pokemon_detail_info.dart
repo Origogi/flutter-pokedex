@@ -12,6 +12,7 @@ class PokemonDetailInfo with _$PokemonDetailInfo {
     required String name,
     required String imageUrl,
     required List<PokemonType> types,
+    required List<PokemonType> weaknesses,
     required String desc,
     required String category,
     required double height,

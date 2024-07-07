@@ -2,6 +2,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/data/repository/pokemon_info_repository.dart';
 import 'package:pokedex/data/repository/pokemon_species_info_repository.dart';
 import 'package:pokedex/domain/model/pokemon_detail_info.dart';
+import 'package:pokedex/domain/model/pokemon_type.dart';
 import 'package:pokedex/util/extentions.dart';
 
 class GetPokemonDetailInfoUsecase {
@@ -30,6 +31,12 @@ class GetPokemonDetailInfoUsecase {
           .map((e) => e.capitalizeFirst().replaceAll("-", " "))
           .toList(),
       genderRate: pokemonSpeciesInfo.genderRate,
+      // TODO: Implement the weaknesses
+      weaknesses: [
+        PokemonType.bug,
+        PokemonType.dark,
+        PokemonType.dragon,
+      ]
     );
   }
 }

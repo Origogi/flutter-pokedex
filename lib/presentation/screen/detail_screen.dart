@@ -207,7 +207,26 @@ class _Content extends StatelessWidget {
                 const Gap(28),
                 PokemonGenderRatioView(
                   genderRate: info.genderRate,
-                )
+                ),
+                const Gap(40),
+                Text(
+                  "Weaknesses",
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
+                const Gap(12),
+                GridView.count(
+                    padding: EdgeInsets.zero,
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    crossAxisCount: 2,
+                    childAspectRatio: 156.0 / 36.0,
+                    crossAxisSpacing: 16,
+                    mainAxisSpacing: 12,
+                    children: info.weaknesses
+                        .map((type) => PokemonTypeChip.large(type))
+                        .toList())
               ],
             ),
           ),
