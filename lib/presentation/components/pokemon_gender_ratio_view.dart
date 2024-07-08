@@ -20,9 +20,9 @@ class PokemonGenderRatioView extends StatelessWidget {
         if (genderRate == null)
           const _GenderlessView()
         else
-          const _GenderlessView()
-
-        // _RatioView(ratio: genderRate!,),
+          _RatioView(
+            ratio: genderRate!,
+          ),
       ],
     );
   }
