@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/data/dto/pokemon_data.dart';
 import 'package:pokedex/data/dto/pokemon_species_data.dart';
+import 'package:pokedex/data/dto/pokemon_type_detail_data.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'pokedex_api_service.g.dart';
@@ -15,6 +16,10 @@ abstract class PokedexApiService {
 
   @GET('pokemon-species/{id}')
   Future<PokemonSpeciesData> getPokemonSpecies(@Path('id') int id);
+
+  @GET("type/{type}")
+  Future<PokemonTypeDetailData> getPokemonTypeDetail(@Path('type') String type);
+
 }
 
 final pokedexApiService = Provider((ref) {

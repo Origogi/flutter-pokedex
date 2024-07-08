@@ -3,6 +3,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/data/dto/pokemon_data.dart';
 import 'package:pokedex/data/dto/pokemon_species_data.dart';
+import 'package:pokedex/data/dto/pokemon_type_detail_data.dart';
 import 'package:pokedex/data/network/pokedex_api_service.dart';
 
 class PokedexApiClient {
@@ -19,6 +20,11 @@ class PokedexApiClient {
   Future<PokemonSpeciesData> getPokemonSpeciesDataById(int id) async {
     final pokemonSpeciesData = await _apiService.getPokemonSpecies(id);
     return pokemonSpeciesData;
+  }
+
+  Future<PokemonTypeDetailData> getPokemonTypeDetail(String type) async {
+    final pokemonTypeDetailData = await _apiService.getPokemonTypeDetail(type);
+    return pokemonTypeDetailData;
   }
 
 

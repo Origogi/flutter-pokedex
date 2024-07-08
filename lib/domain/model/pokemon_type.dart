@@ -184,4 +184,5 @@ enum PokemonType {
   static PokemonType valueOf(String type) {
     return _map[type]!;
   }
+
 }
