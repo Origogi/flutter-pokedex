@@ -17,6 +17,7 @@ import 'package:pokedex/presentation/components/pokemon_status_group_view.dart';
 import 'package:pokedex/presentation/components/pokemon_type_chip.dart';
 import 'package:pokedex/presentation/viewmodel/pokemon_detail_screen_view_model.dart';
 import 'package:pokedex/util/extentions.dart';
+import 'package:shimmer/shimmer.dart';
 
 @RoutePage()
 class DetailScreen extends HookConsumerWidget {
@@ -52,9 +53,14 @@ class _Placeholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: const [
-        PokemonTypeBackground(
-          color: Colors.grey,
+      children: [
+        Shimmer.fromColors(
+          baseColor: Colors.grey,
+          period: const Duration(milliseconds: 2500),
+          highlightColor: Colors.grey.withOpacity(0.6),
+          child: PokemonTypeBackground(
+            color: Colors.grey,
+          ),
         ),
       ],
     );
