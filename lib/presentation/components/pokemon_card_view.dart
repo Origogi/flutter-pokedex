@@ -24,7 +24,7 @@ class PokemonCardView extends StatelessWidget {
       ),
       child: GestureDetector(
         onTap: () => context.pushRoute(
-          DetailRoute(
+          PokemonDetailRoute(
             pokdexId: info.pokedexId,
           ),
         ),

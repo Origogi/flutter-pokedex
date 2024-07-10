@@ -20,10 +20,10 @@ import 'package:pokedex/util/extentions.dart';
 import 'package:shimmer/shimmer.dart';
 
 @RoutePage()
-class DetailScreen extends HookConsumerWidget {
+class PokemonDetailScreen extends HookConsumerWidget {
   final int pokdexId;
 
-  const DetailScreen({
+  const PokemonDetailScreen({
     super.key,
     required this.pokdexId,
   });
