@@ -21,3 +21,17 @@ Riverpod
 ### Freezed
 
 ### Google Fonts
+
+## TODO
+
+- [ ] DetailScreen
+  - [ ] Evolution info view
+  - [ ] Loading shimmer view
+- [ ] Favorite Feature
+  - [ ] Add favorite
+  - [ ] Remove favorite
+  - [ ] Favorite tab
+- [ ] Profile tab
+- [ ] Home
+  - [ ] Tab transition animation
+ 
