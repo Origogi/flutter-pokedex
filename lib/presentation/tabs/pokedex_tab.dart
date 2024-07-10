@@ -35,7 +35,7 @@ class _Body extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final PokedexIdRange pokedexIdRange = PokedexIdRange(
         start: RegionType.kanto.startPokedexId,
-        end:100);
+        end: RegionType.alola.endPokedexId);
 
     final list = ref.watch(pokemonListViewModelProvider(pokedexIdRange)
         .select((state) => state.list));
