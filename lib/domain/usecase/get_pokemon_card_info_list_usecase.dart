@@ -2,6 +2,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/data/repository/pokemon_info_repository.dart';
 import 'package:pokedex/domain/model/pokemon_card_info.dart';
 
+
 class GetPokemonCardInfoListUseCase {
   final Ref ref;
 
