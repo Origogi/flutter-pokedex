@@ -18,6 +18,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/icon_arrow_left.svg
   String get iconArrowLeft => 'assets/icons/icon_arrow_left.svg';
 
+  /// File path: assets/icons/icon_arrow_left_2.svg
+  String get iconArrowLeft2 => 'assets/icons/icon_arrow_left_2.svg';
+
   /// File path: assets/icons/icon_category.svg
   String get iconCategory => 'assets/icons/icon_category.svg';
 
@@ -185,6 +188,7 @@ class $AssetsIconsGen {
   List<String> get values => [
         iconAbility,
         iconArrowLeft,
+        iconArrowLeft2,
         iconCategory,
         iconFavOff,
         iconFavOff2,

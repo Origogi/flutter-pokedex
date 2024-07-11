@@ -33,7 +33,7 @@ class _Body extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final PokedexIdRange pokedexIdRange = PokedexIdRange(
+    final pokedexIdRange = PokedexIdRange(
         start: RegionType.kanto.startPokedexId,
         end: RegionType.alola.endPokedexId);
 
