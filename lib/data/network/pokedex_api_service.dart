@@ -1,28 +1,46 @@
-import 'package:dio/dio.dart';
+import 'dart:convert';
+
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/data/dto/pokemon_data.dart';
 import 'package:pokedex/data/dto/pokemon_species_data.dart';
 import 'package:pokedex/data/dto/pokemon_type_detail_data.dart';
-import 'package:retrofit/retrofit.dart';
+import 'package:http/http.dart' as http;
 
-part 'pokedex_api_service.g.dart';
+class PokedexApiService {
+  final String baseUrl = 'https://pokeapi.co/api/v2/';
+  final client = http.Client();
 
-@RestApi(baseUrl: 'https://pokeapi.co/api/v2/')
-abstract class PokedexApiService {
-  factory PokedexApiService(Dio dio, {String baseUrl}) = _PokedexApiService;
+  Future<PokemonData> getPokemonDetails(int id) async {
+    final uri = Uri.parse('$baseUrl/pokemon/$id');
+    final response = await http.get(uri);
 
-  @GET('pokemon/{id}')
-  Future<PokemonData> getPokemonDetails(@Path('id') int id);
+    var jsonBody =
+        jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
 
-  @GET('pokemon-species/{id}')
-  Future<PokemonSpeciesData> getPokemonSpecies(@Path('id') int id);
+    return PokemonData.fromJson(jsonBody);
+  }
 
-  @GET("type/{type}")
-  Future<PokemonTypeDetailData> getPokemonTypeDetail(@Path('type') String type);
+  Future<PokemonSpeciesData> getPokemonSpecies(int id) async {
+    final uri = Uri.parse('$baseUrl/pokemon-species/$id');
+    final response = await http.get(uri);
 
+    var jsonBody =
+        jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
+
+    return PokemonSpeciesData.fromJson(jsonBody);
+  }
+
+  Future<PokemonTypeDetailData> getPokemonTypeDetail(String type) async {
+    final uri = Uri.parse('$baseUrl/type/$type');
+    final response = await http.get(uri);
+
+    var jsonBody =
+        jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
+
+    return PokemonTypeDetailData.fromJson(jsonBody);
+  }
 }
 
 final pokedexApiService = Provider((ref) {
-  final dio = Dio();
-  return PokedexApiService(dio);
+  return PokedexApiService();
 });
