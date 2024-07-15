@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/domain/usecase/add_favorite_pokedex_id_usecase.dart';
+import 'package:pokedex/domain/usecase/is_favorite_pokedex_id_usecase.dart';
 import 'package:pokedex/domain/usecase/remove_favorite_pokedex_id_usecase.dart';
-import 'package:pokedex/domain/usecase/s_favorite_pokedex_id_usecase.dart';
 
 part 'favorite_button_view_model.freezed.dart';
 
