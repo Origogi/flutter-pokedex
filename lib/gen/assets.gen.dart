@@ -33,6 +33,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/icon_fav_on.svg
   String get iconFavOn => 'assets/icons/icon_fav_on.svg';
 
+  /// File path: assets/icons/icon_fav_on_2.svg
+  String get iconFavOn2 => 'assets/icons/icon_fav_on_2.svg';
+
   /// File path: assets/icons/icon_female.svg
   String get iconFemale => 'assets/icons/icon_female.svg';
 
@@ -193,6 +196,7 @@ class $AssetsIconsGen {
         iconFavOff,
         iconFavOff2,
         iconFavOn,
+        iconFavOn2,
         iconFemale,
         iconHeight,
         iconMale,
