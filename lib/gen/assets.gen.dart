@@ -30,11 +30,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/icon_fav_off_2.svg
   String get iconFavOff2 => 'assets/icons/icon_fav_off_2.svg';
 
+  /// File path: assets/icons/icon_fav_off_3.svg
+  String get iconFavOff3 => 'assets/icons/icon_fav_off_3.svg';
+
   /// File path: assets/icons/icon_fav_on.svg
   String get iconFavOn => 'assets/icons/icon_fav_on.svg';
 
   /// File path: assets/icons/icon_fav_on_2.svg
   String get iconFavOn2 => 'assets/icons/icon_fav_on_2.svg';
+
+  /// File path: assets/icons/icon_fav_on_3.svg
+  String get iconFavOn3 => 'assets/icons/icon_fav_on_3.svg';
 
   /// File path: assets/icons/icon_female.svg
   String get iconFemale => 'assets/icons/icon_female.svg';
@@ -195,8 +201,10 @@ class $AssetsIconsGen {
         iconCategory,
         iconFavOff,
         iconFavOff2,
+        iconFavOff3,
         iconFavOn,
         iconFavOn2,
+        iconFavOn3,
         iconFemale,
         iconHeight,
         iconMale,

@@ -260,10 +260,20 @@ class _FavButton extends ConsumerWidget {
               .read(favoriteButtonViewModelProvider(pokdexId).notifier)
               .toggleFavorite();
         },
-        child: SvgPicture.asset(
-          isFav ? Assets.icons.iconFavOn2 : Assets.icons.iconFavOff2,
-          width: 28,
-          height: 28,
+        child: AnimatedCrossFade(
+          firstChild: SvgPicture.asset(
+            Assets.icons.iconFavOff2,
+            width: 28,
+            height: 28,
+          ),
+          secondChild: SvgPicture.asset(
+            Assets.icons.iconFavOn2,
+            width: 28,
+            height: 28,
+          ),
+          duration: const Duration(milliseconds: 300),
+          crossFadeState:
+              isFav ? CrossFadeState.showSecond : CrossFadeState.showFirst,
         ),
       ),
     );
