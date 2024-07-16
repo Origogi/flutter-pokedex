@@ -7,7 +7,7 @@ import 'package:pokedex/presentation/components/pokemon_card_view.dart';
 import 'package:pokedex/presentation/viewmodel/pokemon_list_view_model.dart';
 
 class PokedexTab extends StatefulWidget {
-  const PokedexTab({
+          const PokedexTab({
     super.key,
   });
 
@@ -17,6 +17,12 @@ class PokedexTab extends StatefulWidget {
 
 class _PokedexTabState extends State<PokedexTab>
     with AutomaticKeepAliveClientMixin<PokedexTab> {
+
+  @override
+  void initState() {
+    super.initState();
+    print("initState");
+  }
   @override
   Widget build(BuildContext context) {
     super.build(context);

@@ -18,31 +18,53 @@ class HomeScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final pageController = usePageController();
+    final selectedTab = useState(HomeTab.pokedex);
 
     return Container(
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.white,
-          body: PageView(
-            controller: pageController,
-            physics: const NeverScrollableScrollPhysics(),
-            children: [
-              PokedexTab(),
-              RegionsTab(),
-              const FavoritesTab(),
-              ProfileTab()
-            ],
+          body: AnimatedSwitcher(
+            duration: Duration(milliseconds: 200),
+            transitionBuilder: (Widget child, Animation<double> animation) {
+              return AnimatedBuilder(
+                animation: animation,
+                builder: (context, child) {
+                  final scaleTween = Tween<double>(begin: 0.9, end: 1.0);
+                  final fadeTween = Tween<double>(begin: 0.0, end: 1.0);
+                  return FadeTransition(
+                    opacity: fadeTween.animate(animation),
+                    child: Transform.scale(
+                      scale: scaleTween.evaluate(animation),
+                      child: child,
+                    ),
+                  );
+                },
+                child: child,
+              );
+            },
+            child: _buildTabContent(selectedTab.value),
           ),
-          bottomNavigationBar:  _CustomBottomNavigationBar(
+          bottomNavigationBar: _CustomBottomNavigationBar(
             onTabChanged: (tab) {
-              pageController.jumpToPage(tab.index);
+              selectedTab.value = tab;
             },
           ),
         ),
       ),
     );
+  }
+
+  Widget _buildTabContent(HomeTab value) {
+    final tabWidget = switch (value) {
+      HomeTab.pokedex => const PokedexTab(),
+      HomeTab.regions => const RegionsTab(),
+      HomeTab.favorites => const FavoritesTab(),
+      HomeTab.profile => const ProfileTab(),
+    };
+
+    return KeyedSubtree(key: ValueKey(value), child: tabWidget);
   }
 }
 
