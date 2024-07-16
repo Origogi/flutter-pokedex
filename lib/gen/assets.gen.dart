@@ -257,6 +257,10 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/anoymous.png
+  AssetGenImage get anoymous =>
+      const AssetGenImage('assets/images/anoymous.png');
+
   /// File path: assets/images/no_fav_background.png
   AssetGenImage get noFavBackground =>
       const AssetGenImage('assets/images/no_fav_background.png');
@@ -295,6 +299,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+        anoymous,
         noFavBackground,
         regionAlola,
         regionGalar,

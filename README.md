@@ -28,10 +28,10 @@ Riverpod
   - [ ] Evolution info view
   - [ ] Loading shimmer view
 - [ ] Favorite Feature
-  - [ ] Add favorite
-  - [ ] Remove favorite
+  - [x] Add favorite
+  - [x] Remove favorite
   - [ ] Favorite tab
-- [ ] Profile tab
+- [x] Profile tab
 - [ ] Home
   - [ ] Tab transition animation
  
