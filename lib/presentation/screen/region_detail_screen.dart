@@ -76,25 +76,33 @@ class RegionDetailScreen extends HookConsumerWidget {
             color: Color(0xFFF2F2F2),
           ),
           Flexible(
-            child: ListView.builder(
-              controller: controller,
-              itemCount: list.length + (needLoadMore ? 1 : 0),
-              itemBuilder: (context, index) {
-                if (index == list.length) {
-                  return const SizedBox(
-                    height: 90,
-                    child: Center(
-                      child: SizedBox(
-                          width: 30,
-                          height: 30,
-                          child: CircularProgressIndicator()),
+            child: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 500),
+              child: list.isEmpty
+                  ? const Center(
+                      key: ValueKey("loading"),
+                      child: CircularProgressIndicator())
+                  : ListView.builder(
+                      key: const ValueKey("loaded"),
+                      controller: controller,
+                      itemCount: list.length + (needLoadMore ? 1 : 0),
+                      itemBuilder: (context, index) {
+                        if (index == list.length) {
+                          return const SizedBox(
+                            height: 90,
+                            child: Center(
+                              child: SizedBox(
+                                  width: 30,
+                                  height: 30,
+                                  child: CircularProgressIndicator()),
+                            ),
+                          );
+                        } else {
+                          final pokemon = list[index];
+                          return PokemonCardView(info: pokemon);
+                        }
+                      },
                     ),
-                  );
-                } else {
-                  final pokemon = list[index];
-                  return PokemonCardView(info: pokemon);
-                }
-              },
             ),
           ),
         ],

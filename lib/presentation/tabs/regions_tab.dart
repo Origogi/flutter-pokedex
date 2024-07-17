@@ -6,7 +6,9 @@ import 'package:pokedex/domain/model/region_type.dart';
 import 'package:pokedex/presentation/routers.dart';
 
 class RegionsTab extends StatelessWidget {
-  const RegionsTab({super.key});
+  const RegionsTab({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

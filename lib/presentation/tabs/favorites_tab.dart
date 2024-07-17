@@ -3,7 +3,9 @@ import 'package:gap/gap.dart';
 import 'package:pokedex/gen/assets.gen.dart';
 
 class FavoritesTab extends StatelessWidget {
-  const FavoritesTab({super.key});
+  const FavoritesTab({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
