@@ -25,26 +25,16 @@ class HomeScreen extends HookConsumerWidget {
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.white,
-          body: AnimatedSwitcher(
-            duration: Duration(milliseconds: 200),
-            transitionBuilder: (Widget child, Animation<double> animation) {
-              return AnimatedBuilder(
-                animation: animation,
-                builder: (context, child) {
-                  final scaleTween = Tween<double>(begin: 0.9, end: 1.0);
-                  final fadeTween = Tween<double>(begin: 0.0, end: 1.0);
-                  return FadeTransition(
-                    opacity: fadeTween.animate(animation),
-                    child: Transform.scale(
-                      scale: scaleTween.evaluate(animation),
-                      child: child,
-                    ),
-                  );
-                },
-                child: child,
-              );
-            },
-            child: _buildTabContent(selectedTab.value),
+          body: IndexedStack(
+            index: selectedTab.value.index,
+            children: HomeTab.values.map(
+              (tab) {
+                return AnimatedTabContent(
+                  enabled: tab == selectedTab.value,
+                  child: _buildTabContent(tab),
+                );
+              },
+            ).toList(),
           ),
           bottomNavigationBar: _CustomBottomNavigationBar(
             onTabChanged: (tab) {
@@ -65,6 +55,52 @@ class HomeScreen extends HookConsumerWidget {
     };
 
     return KeyedSubtree(key: ValueKey(value), child: tabWidget);
+  }
+}
+
+class AnimatedTabContent extends HookWidget {
+  final bool enabled;
+  final Widget child;
+
+  const AnimatedTabContent({
+    Key? key,
+    required this.enabled,
+    required this.child,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final animationController = useAnimationController(
+      duration: Duration(milliseconds: 250),
+    );
+
+    useEffect(() {
+      if (enabled) {
+        animationController.forward();
+      } else {
+        animationController.reverse();
+      }
+      return null;
+    }, [enabled]);
+
+    final fadeAnimation =
+        Tween<double>(begin: 0.1, end: 1.0).animate(animationController);
+    final scaleAnimation =
+        Tween<double>(begin: 0.0, end: 1.0).animate(animationController);
+
+    return FadeTransition(
+      opacity: fadeAnimation,
+      child: AnimatedBuilder(
+        animation: scaleAnimation,
+        builder: (context, child) {
+          return Transform.scale(
+            scale: scaleAnimation.value,
+            child: child,
+          );
+        },
+        child: child,
+      ),
+    );
   }
 }
 
