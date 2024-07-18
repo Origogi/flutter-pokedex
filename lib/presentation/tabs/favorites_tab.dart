@@ -1,32 +1,44 @@
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:pokedex/gen/assets.gen.dart';
+import 'package:pokedex/presentation/viewmodel/favorite_tab_view_model.dart';
 
-class FavoritesTab extends StatelessWidget {
+class FavoritesTab extends HookConsumerWidget {
   const FavoritesTab({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 16, top: 20, bottom: 20),
-          child: Text(
-            "Favorites",
-            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isLoading = ref
+        .watch(favoriteTabViewModelProvider.select((state) => state.isLoading));
+
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 500),
+      child: isLoading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 16, top: 20, bottom: 20),
+                  child: Text(
+                    "Favorites",
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
                 ),
-          ),
-        ),
-        const Divider(
-          height: 1,
-          color: Color(0xFFF2F2F2),
-        ),
-        const Flexible(child: _EmptyView()),
-      ],
+                const Divider(
+                  height: 1,
+                  color: Color(0xFFF2F2F2),
+                ),
+                const Flexible(child: _EmptyView()),
+              ],
+            ),
     );
   }
 }
