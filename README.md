@@ -32,6 +32,6 @@ Riverpod
   - [x] Remove favorite
   - [ ] Favorite tab
 - [x] Profile tab
-- [ ] Home
-  - [ ] Tab transition animation
+- [x] Home
+  - [x] Tab transition animation
  
