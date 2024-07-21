@@ -1,7 +1,9 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:pokedex/domain/model/pokemon_card_info.dart';
 import 'package:pokedex/gen/assets.gen.dart';
+import 'package:pokedex/presentation/components/pokemon_card_view.dart';
 import 'package:pokedex/presentation/viewmodel/favorite_tab_view_model.dart';
 
 class FavoritesTab extends HookConsumerWidget {
@@ -13,6 +15,9 @@ class FavoritesTab extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isLoading = ref
         .watch(favoriteTabViewModelProvider.select((state) => state.isLoading));
+
+    final list =
+        ref.watch(favoriteTabViewModelProvider.select((state) => state.list));
 
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 500),
@@ -36,14 +41,35 @@ class FavoritesTab extends HookConsumerWidget {
                   height: 1,
                   color: Color(0xFFF2F2F2),
                 ),
-                const Flexible(child: _EmptyView()),
+                Flexible(
+                  child:
+                      list.isEmpty ? const _EmptyView() : _ListView(list: list),
+                )
               ],
             ),
     );
   }
 }
 
-// ignore: unused_element
+class _ListView extends StatelessWidget {
+  final List<PokemonCardInfo> list;
+
+  const _ListView({
+    required this.list,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: list.length,
+        itemBuilder: (context, index) {
+          final info = list[index];
+
+          return PokemonCardView(info: info);
+        });
+  }
+}
+
 class _EmptyView extends StatelessWidget {
   const _EmptyView();
 

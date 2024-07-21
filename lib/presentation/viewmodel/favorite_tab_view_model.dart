@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/domain/model/pokemon_card_info.dart';
 import 'package:pokedex/domain/model/pokemon_type.dart';
+import 'package:pokedex/domain/usecase/gat_favorite_pokemon_card_info_list_usecase.dart';
+import 'package:pokedex/domain/usecase/watch_favorite_pokemon_card_info_list_usecase.dart';
 
 part 'favorite_tab_view_model.freezed.dart';
 
@@ -14,31 +18,38 @@ class FavoriteTabViewModelState with _$FavoriteTabViewModelState {
 }
 
 class FavoriteTabViewModel extends StateNotifier<FavoriteTabViewModelState> {
-  FavoriteTabViewModel()
-      : super(const FavoriteTabViewModelState(list: [], isLoading: false)) {
+  FavoriteTabViewModel({
+    required this.watchUsecase,
+    required this.getUsecase,
+  }) : super(const FavoriteTabViewModelState(list: [], isLoading: false)) {
     load();
+    _subscription = watchUsecase.watch().listen((list) {
+      state = state.copyWith(list: list);
+    });
   }
+
+  @override
+  void dispose() {
+    _subscription?.cancel();
+    super.dispose();
+  }
+
+  final WatchFavoritePokemonCardInfoListUsecase watchUsecase;
+  final GetFavoritePokemonCardInfoListUsecase getUsecase;
+  StreamSubscription? _subscription;
 
   Future<void> load() async {
     state = state.copyWith(isLoading: true);
 
-    await Future.delayed(const Duration(seconds: 1));
+    final list = await getUsecase.execute();
 
-    state = state.copyWith(
-      isLoading: false,
-      list: List.generate(10, (index) {
-        return PokemonCardInfo(
-          pokedexId: index,
-          name: "Pokemon $index",
-          imageUrl:
-              "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index + 1}.png",
-          types: [PokemonType.fire],
-        );
-      }),
-    );
+    state = state.copyWith(isLoading: false, list: list);
   }
 }
 
-final favoriteTabViewModelProvider =
-    StateNotifierProvider<FavoriteTabViewModel, FavoriteTabViewModelState>(
-        (ref) => FavoriteTabViewModel());
+final favoriteTabViewModelProvider = StateNotifierProvider.autoDispose<
+    FavoriteTabViewModel, FavoriteTabViewModelState>((ref) {
+  final watchUsecase = ref.watch(watchFavoritePokemonCardInfoListUsecaseProvider);
+  final getUsecase = ref.watch(getFavoritePokemonCardInfoListUsecaseProvider);
+  return FavoriteTabViewModel(watchUsecase: watchUsecase, getUsecase: getUsecase);
+});

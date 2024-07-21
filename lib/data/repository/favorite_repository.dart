@@ -43,6 +43,12 @@ class FavoriteRepository {
     _controller.add(newData.map((e) => int.parse(e)).toList());
   }
 
+  Future<List<int>> getAll() async {
+    final data = await _read();
+
+    return data.map((e) => int.parse(e)).toList();
+  }
+
   Stream<List<int>> watch() {
     return _controller.stream;
   }
