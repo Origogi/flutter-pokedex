@@ -26,88 +26,84 @@ class PokemonCardView extends StatelessWidget {
 
     final name = info.name.split('-').first.capitalizeFirst();
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 16,
-      ),
-      child: GestureDetector(
-        onTap: () => context.pushRoute(
-          PokemonDetailRoute(
-            pokdexId: info.pokedexId,
-          ),
+    return GestureDetector(
+      onTap: () => context.pushRoute(
+        PokemonDetailRoute(
+          pokdexId: info.pokedexId,
         ),
-        child: Card(
-          elevation: 0,
-          color: info.mainType.bgColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Stack(
-            children: [
-              Container(
-                padding: const EdgeInsets.only(left: 16),
-                height: 102,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          info.pokedexId.pokedexIdFormat(),
-                          style:
-                              textTheme.titleSmall?.copyWith(color: Black800),
+      ),
+      child: Card(
+        elevation: 0,
+        margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
+        color: info.mainType.bgColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Stack(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(left: 16),
+              height: 102,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        info.pokedexId.pokedexIdFormat(),
+                        style:
+                            textTheme.titleSmall?.copyWith(color: Black800),
+                      ),
+                      Text(
+                        name,
+                        style: textTheme.titleMedium,
+                      ),
+                      const Gap(4),
+                      Row(
+                          children: info.types
+                              .mapIndexed((i, type) => Padding(
+                                  padding:
+                                      EdgeInsets.only(left: i == 0 ? 0 : 4),
+                                  child: PokemonTypeChip.medium(type)))
+                              .toList()),
+                    ],
+                  ),
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        width: 126,
+                        height: double.infinity,
+                        decoration: BoxDecoration(
+                          color: info.mainType.color,
+                          borderRadius: BorderRadius.circular(15),
                         ),
-                        Text(
-                          name,
-                          style: textTheme.titleMedium,
-                        ),
-                        const Gap(4),
-                        Row(
-                            children: info.types
-                                .mapIndexed((i, type) => Padding(
-                                    padding:
-                                        EdgeInsets.only(left: i == 0 ? 0 : 4),
-                                    child: PokemonTypeChip.medium(type)))
-                                .toList()),
-                      ],
-                    ),
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Container(
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4),
+                        child: SvgPicture.asset(
+                          info.mainType.iconGradientAssetPath,
                           width: 126,
-                          height: double.infinity,
-                          decoration: BoxDecoration(
-                            color: info.mainType.color,
-                            borderRadius: BorderRadius.circular(15),
-                          ),
+                          height: 126,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(4),
-                          child: SvgPicture.asset(
-                            info.mainType.iconGradientAssetPath,
-                            width: 126,
-                            height: 126,
-                          ),
+                      ),
+                      Image.network(info.imageUrl),
+                      Positioned(
+                        top: 6,
+                        right: 12,
+                        child: _FavButton(
+                          pokdexId: info.pokedexId,
                         ),
-                        Image.network(info.imageUrl),
-                        Positioned(
-                          top: 6,
-                          right: 12,
-                          child: _FavButton(
-                            pokdexId: info.pokedexId,
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+                      ),
+                    ],
+                  )
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

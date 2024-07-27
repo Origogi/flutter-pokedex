@@ -83,6 +83,7 @@ class RegionDetailScreen extends HookConsumerWidget {
                       key: ValueKey("loading"),
                       child: CircularProgressIndicator())
                   : ListView.builder(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                       key: const ValueKey("loaded"),
                       controller: controller,
                       itemCount: list.length + (needLoadMore ? 1 : 0),

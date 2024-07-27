@@ -1,3 +1,5 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -51,7 +53,7 @@ class FavoritesTab extends HookConsumerWidget {
   }
 }
 
-class _ListView extends StatelessWidget {
+class _ListView extends ConsumerWidget {
   final List<PokemonCardInfo> list;
 
   const _ListView({
@@ -59,13 +61,42 @@ class _ListView extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ListView.builder(
         itemCount: list.length,
         itemBuilder: (context, index) {
           final info = list[index];
 
-          return PokemonCardView(info: info);
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Slidable(
+                key: Key(info.pokedexId.toString()),
+                endActionPane: ActionPane(
+                  extentRatio: 0.33,
+                  motion: const ScrollMotion(),
+                  children: [
+                    SlidableAction(
+                      autoClose: false,
+                      flex: 1,
+                      borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(16),
+                        bottomRight: Radius.circular(16),
+                      ),
+                      onPressed: (context) {
+                        ref.read(favoriteTabViewModelProvider.notifier).remove(
+                              info.pokedexId,
+                            );
+                      },
+                      icon: Icons.delete,
+                      label: "Delete",
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.red,
+                      // color: Colors.red,
+                    ),
+                  ],
+                ),
+                child: PokemonCardView(info: info)),
+          );
         });
   }
 }
