@@ -38,12 +38,13 @@ class PokemonListViewModel extends StateNotifier<PokemonListViewModelState> {
     }
 
     state = state.copyWith(isLoading: true);
-    final remain = pokedexIdRange.end - state.list.length;
+    final remain =
+        pokedexIdRange.end - (state.list.length + pokedexIdRange.start - 1);
 
     final offset = state.list.isEmpty
         ? pokedexIdRange.start - 1
         : state.list.last.pokedexId;
-        
+
     final limit = remain > 20 ? 20 : remain;
 
     final loadedList = await useCase.execute(offset, limit);

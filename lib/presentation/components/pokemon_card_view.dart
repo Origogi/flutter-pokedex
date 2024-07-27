@@ -24,6 +24,8 @@ class PokemonCardView extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
+    final name = info.name.split('-').first.capitalizeFirst();
+
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
@@ -59,7 +61,7 @@ class PokemonCardView extends StatelessWidget {
                               textTheme.titleSmall?.copyWith(color: Black800),
                         ),
                         Text(
-                          info.name.capitalizeFirst(),
+                          name,
                           style: textTheme.titleMedium,
                         ),
                         const Gap(4),
