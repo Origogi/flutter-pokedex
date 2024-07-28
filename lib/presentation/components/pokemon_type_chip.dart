@@ -9,15 +9,19 @@ class PokemonTypeChip extends StatelessWidget {
     required this.type,
     required this.height,
     required this.fontSize,
-    required this.padding,
+    this.padding,
+    required this.showLabel,
     required this.iconLabelGap,
+    required this.fillWidth,
   });
 
   final PokemonType type;
   final double height;
   final double fontSize;
-  final EdgeInsets padding;
+  final EdgeInsets? padding;
   final double iconLabelGap;
+  final bool showLabel;
+  final bool fillWidth;
 
   factory PokemonTypeChip.medium(PokemonType type) {
     return PokemonTypeChip._(
@@ -26,6 +30,8 @@ class PokemonTypeChip extends StatelessWidget {
       fontSize: 12,
       padding: const EdgeInsets.symmetric(horizontal: 6),
       iconLabelGap: 6,
+      showLabel: true,
+      fillWidth: false,
     );
   }
 
@@ -36,6 +42,19 @@ class PokemonTypeChip extends StatelessWidget {
       fontSize: 14,
       padding: const EdgeInsets.symmetric(horizontal: 14),
       iconLabelGap: 8,
+      showLabel: true,
+      fillWidth: true,
+    );
+  }
+
+  factory PokemonTypeChip.small(PokemonType type) {
+    return PokemonTypeChip._(
+      type: type,
+      height: 13,
+      fontSize: 14,
+      iconLabelGap: 8,
+      showLabel: false,
+      fillWidth: true,
     );
   }
 
@@ -68,14 +87,16 @@ class PokemonTypeChip extends StatelessWidget {
                   BlendMode.srcIn,
                 )),
           ),
-          Gap(iconLabelGap),
-          Text(
-            type.name.capitalizeFirst(),
-            style: textTheme.labelLarge?.copyWith(
-              color: type.labelColorOnSurface,
-              fontSize: fontSize,
+          if (showLabel) ...[
+            Gap(iconLabelGap),
+            Text(
+              type.name.capitalizeFirst(),
+              style: textTheme.labelLarge?.copyWith(
+                color: type.labelColorOnSurface,
+                fontSize: fontSize,
+              ),
             ),
-          ),
+          ]
         ],
       ),
     );

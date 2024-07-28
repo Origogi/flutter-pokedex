@@ -83,7 +83,7 @@ class RegionDetailScreen extends HookConsumerWidget {
                       key: ValueKey("loading"),
                       child: CircularProgressIndicator())
                   : ListView.builder(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       key: const ValueKey("loaded"),
                       controller: controller,
                       itemCount: list.length + (needLoadMore ? 1 : 0),
@@ -99,8 +99,7 @@ class RegionDetailScreen extends HookConsumerWidget {
                             ),
                           );
                         } else {
-                          final pokemon = list[index];
-                          return PokemonCardView(info: pokemon);
+                          return PokemonCardView.medium(info: list[index]);
                         }
                       },
                     ),

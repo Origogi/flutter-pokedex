@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:pokedex/domain/model/pokemon_evolution_chain_info.dart';
+import 'package:pokedex/presentation/components/pokemon_card_view.dart';
 
 class PokemonEvolutionInfoView extends StatelessWidget {
   const PokemonEvolutionInfoView({
@@ -15,9 +16,10 @@ class PokemonEvolutionInfoView extends StatelessWidget {
     final items = info.toList();
 
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       decoration: BoxDecoration(
         border: Border.all(
-          color: Color(0xFFE6E6E6),
+          color: const Color(0xFFE6E6E6),
           width: 1.0,
         ),
         borderRadius: BorderRadius.circular(15.0),
@@ -25,17 +27,7 @@ class PokemonEvolutionInfoView extends StatelessWidget {
       child: Column(
         children: [
           for (final item in items)
-            Row(
-              children: [
-                Image.network(
-                  item.imageUrl,
-                  width: 50,
-                  height: 50,
-                ),
-                const Gap(8),
-                Text(item.name),
-              ],
-            ),
+            PokemonCardView.small(info: item),
         ],
       ),
     );

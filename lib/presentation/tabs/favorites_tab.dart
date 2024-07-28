@@ -69,32 +69,33 @@ class _ListView extends ConsumerWidget {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Slidable(
-                key: Key(info.pokedexId.toString()),
-                endActionPane: ActionPane(
-                  extentRatio: 0.33,
-                  motion: const ScrollMotion(),
-                  children: [
-                    SlidableAction(
-                      autoClose: false,
-                      flex: 1,
-                      borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(16),
-                        bottomRight: Radius.circular(16),
-                      ),
-                      onPressed: (context) {
-                        ref.read(favoriteTabViewModelProvider.notifier).remove(
-                              info.pokedexId,
-                            );
-                      },
-                      icon: Icons.delete,
-                      label: "Delete",
-                      foregroundColor: Colors.white,
-                      backgroundColor: Colors.red,
-                      // color: Colors.red,
+              key: Key(info.pokedexId.toString()),
+              endActionPane: ActionPane(
+                extentRatio: 0.33,
+                motion: const ScrollMotion(),
+                children: [
+                  SlidableAction(
+                    autoClose: false,
+                    flex: 1,
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(16),
+                      bottomRight: Radius.circular(16),
                     ),
-                  ],
-                ),
-                child: PokemonCardView(info: info)),
+                    onPressed: (context) {
+                      ref.read(favoriteTabViewModelProvider.notifier).remove(
+                            info.pokedexId,
+                          );
+                    },
+                    icon: Icons.delete,
+                    label: "Delete",
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.red,
+                    // color: Colors.red,
+                  ),
+                ],
+              ),
+              child: PokemonCardView.medium(info: info),
+            ),
           );
         });
   }

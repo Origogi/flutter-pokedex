@@ -16,8 +16,6 @@ class CustomTextTheme extends TextTheme {
   TextStyle? get titleSmall =>
       GoogleFonts.poppins().copyWith(fontSize: 12, fontWeight: FontWeight.w600);
 
-
-
   @override
   TextStyle? get headlineMedium =>
       GoogleFonts.poppins().copyWith(fontSize: 18, fontWeight: FontWeight.w500);
@@ -27,12 +25,12 @@ class CustomTextTheme extends TextTheme {
       GoogleFonts.poppins().copyWith(fontSize: 11, fontWeight: FontWeight.w500);
 
   @override
-  TextStyle? get labelLarge =>
-      GoogleFonts.poppins().copyWith(fontSize: 16, fontWeight: FontWeight.w600);
-
-  @override
   TextStyle? get headlineLarge =>
       GoogleFonts.poppins().copyWith(fontSize: 18, fontWeight: FontWeight.w600);
+
+  @override
+  TextStyle? get labelLarge =>
+      GoogleFonts.poppins().copyWith(fontSize: 16, fontWeight: FontWeight.w600);
 
   @override
   TextStyle? get labelMedium =>
