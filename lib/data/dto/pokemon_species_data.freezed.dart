@@ -26,6 +26,8 @@ mixin _$PokemonSpeciesData {
   List<FlavorTextEntry> get flavorTextEntries =>
       throw _privateConstructorUsedError;
   List<GeneraData> get genera => throw _privateConstructorUsedError;
+  @JsonKey(name: 'evolution_chain')
+  UrlData get evolutionChain => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +45,10 @@ abstract class $PokemonSpeciesDataCopyWith<$Res> {
       {@JsonKey(name: 'gender_rate') int genderRate,
       @JsonKey(name: 'flavor_text_entries')
       List<FlavorTextEntry> flavorTextEntries,
-      List<GeneraData> genera});
+      List<GeneraData> genera,
+      @JsonKey(name: 'evolution_chain') UrlData evolutionChain});
+
+  $UrlDataCopyWith<$Res> get evolutionChain;
 }
 
 /// @nodoc
@@ -62,6 +67,7 @@ class _$PokemonSpeciesDataCopyWithImpl<$Res, $Val extends PokemonSpeciesData>
     Object? genderRate = null,
     Object? flavorTextEntries = null,
     Object? genera = null,
+    Object? evolutionChain = null,
   }) {
     return _then(_value.copyWith(
       genderRate: null == genderRate
@@ -76,7 +82,19 @@ class _$PokemonSpeciesDataCopyWithImpl<$Res, $Val extends PokemonSpeciesData>
           ? _value.genera
           : genera // ignore: cast_nullable_to_non_nullable
               as List<GeneraData>,
+      evolutionChain: null == evolutionChain
+          ? _value.evolutionChain
+          : evolutionChain // ignore: cast_nullable_to_non_nullable
+              as UrlData,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UrlDataCopyWith<$Res> get evolutionChain {
+    return $UrlDataCopyWith<$Res>(_value.evolutionChain, (value) {
+      return _then(_value.copyWith(evolutionChain: value) as $Val);
+    });
   }
 }
 
@@ -92,7 +110,11 @@ abstract class _$$PokemonSpeciesDataImplCopyWith<$Res>
       {@JsonKey(name: 'gender_rate') int genderRate,
       @JsonKey(name: 'flavor_text_entries')
       List<FlavorTextEntry> flavorTextEntries,
-      List<GeneraData> genera});
+      List<GeneraData> genera,
+      @JsonKey(name: 'evolution_chain') UrlData evolutionChain});
+
+  @override
+  $UrlDataCopyWith<$Res> get evolutionChain;
 }
 
 /// @nodoc
@@ -109,6 +131,7 @@ class __$$PokemonSpeciesDataImplCopyWithImpl<$Res>
     Object? genderRate = null,
     Object? flavorTextEntries = null,
     Object? genera = null,
+    Object? evolutionChain = null,
   }) {
     return _then(_$PokemonSpeciesDataImpl(
       genderRate: null == genderRate
@@ -123,6 +146,10 @@ class __$$PokemonSpeciesDataImplCopyWithImpl<$Res>
           ? _value._genera
           : genera // ignore: cast_nullable_to_non_nullable
               as List<GeneraData>,
+      evolutionChain: null == evolutionChain
+          ? _value.evolutionChain
+          : evolutionChain // ignore: cast_nullable_to_non_nullable
+              as UrlData,
     ));
   }
 }
@@ -134,7 +161,8 @@ class _$PokemonSpeciesDataImpl implements _PokemonSpeciesData {
       {@JsonKey(name: 'gender_rate') required this.genderRate,
       @JsonKey(name: 'flavor_text_entries')
       required final List<FlavorTextEntry> flavorTextEntries,
-      required final List<GeneraData> genera})
+      required final List<GeneraData> genera,
+      @JsonKey(name: 'evolution_chain') required this.evolutionChain})
       : _flavorTextEntries = flavorTextEntries,
         _genera = genera;
 
@@ -163,8 +191,12 @@ class _$PokemonSpeciesDataImpl implements _PokemonSpeciesData {
   }
 
   @override
+  @JsonKey(name: 'evolution_chain')
+  final UrlData evolutionChain;
+
+  @override
   String toString() {
-    return 'PokemonSpeciesData(genderRate: $genderRate, flavorTextEntries: $flavorTextEntries, genera: $genera)';
+    return 'PokemonSpeciesData(genderRate: $genderRate, flavorTextEntries: $flavorTextEntries, genera: $genera, evolutionChain: $evolutionChain)';
   }
 
   @override
@@ -176,7 +208,9 @@ class _$PokemonSpeciesDataImpl implements _PokemonSpeciesData {
                 other.genderRate == genderRate) &&
             const DeepCollectionEquality()
                 .equals(other._flavorTextEntries, _flavorTextEntries) &&
-            const DeepCollectionEquality().equals(other._genera, _genera));
+            const DeepCollectionEquality().equals(other._genera, _genera) &&
+            (identical(other.evolutionChain, evolutionChain) ||
+                other.evolutionChain == evolutionChain));
   }
 
   @JsonKey(ignore: true)
@@ -185,7 +219,8 @@ class _$PokemonSpeciesDataImpl implements _PokemonSpeciesData {
       runtimeType,
       genderRate,
       const DeepCollectionEquality().hash(_flavorTextEntries),
-      const DeepCollectionEquality().hash(_genera));
+      const DeepCollectionEquality().hash(_genera),
+      evolutionChain);
 
   @JsonKey(ignore: true)
   @override
@@ -207,7 +242,9 @@ abstract class _PokemonSpeciesData implements PokemonSpeciesData {
       {@JsonKey(name: 'gender_rate') required final int genderRate,
       @JsonKey(name: 'flavor_text_entries')
       required final List<FlavorTextEntry> flavorTextEntries,
-      required final List<GeneraData> genera}) = _$PokemonSpeciesDataImpl;
+      required final List<GeneraData> genera,
+      @JsonKey(name: 'evolution_chain')
+      required final UrlData evolutionChain}) = _$PokemonSpeciesDataImpl;
 
   factory _PokemonSpeciesData.fromJson(Map<String, dynamic> json) =
       _$PokemonSpeciesDataImpl.fromJson;
@@ -220,6 +257,9 @@ abstract class _PokemonSpeciesData implements PokemonSpeciesData {
   List<FlavorTextEntry> get flavorTextEntries;
   @override
   List<GeneraData> get genera;
+  @override
+  @JsonKey(name: 'evolution_chain')
+  UrlData get evolutionChain;
   @override
   @JsonKey(ignore: true)
   _$$PokemonSpeciesDataImplCopyWith<_$PokemonSpeciesDataImpl> get copyWith =>

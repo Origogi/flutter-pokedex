@@ -19,6 +19,7 @@ mixin _$PokemonSpeciesInfo {
   double? get genderRate => throw _privateConstructorUsedError;
   String get desc => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
+  int get evolutionChainId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PokemonSpeciesInfoCopyWith<PokemonSpeciesInfo> get copyWith =>
@@ -31,7 +32,8 @@ abstract class $PokemonSpeciesInfoCopyWith<$Res> {
           PokemonSpeciesInfo value, $Res Function(PokemonSpeciesInfo) then) =
       _$PokemonSpeciesInfoCopyWithImpl<$Res, PokemonSpeciesInfo>;
   @useResult
-  $Res call({double? genderRate, String desc, String category});
+  $Res call(
+      {double? genderRate, String desc, String category, int evolutionChainId});
 }
 
 /// @nodoc
@@ -50,6 +52,7 @@ class _$PokemonSpeciesInfoCopyWithImpl<$Res, $Val extends PokemonSpeciesInfo>
     Object? genderRate = freezed,
     Object? desc = null,
     Object? category = null,
+    Object? evolutionChainId = null,
   }) {
     return _then(_value.copyWith(
       genderRate: freezed == genderRate
@@ -64,6 +67,10 @@ class _$PokemonSpeciesInfoCopyWithImpl<$Res, $Val extends PokemonSpeciesInfo>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
+      evolutionChainId: null == evolutionChainId
+          ? _value.evolutionChainId
+          : evolutionChainId // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -76,7 +83,8 @@ abstract class _$$PokemonSpeciesInfoImplCopyWith<$Res>
       __$$PokemonSpeciesInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double? genderRate, String desc, String category});
+  $Res call(
+      {double? genderRate, String desc, String category, int evolutionChainId});
 }
 
 /// @nodoc
@@ -93,6 +101,7 @@ class __$$PokemonSpeciesInfoImplCopyWithImpl<$Res>
     Object? genderRate = freezed,
     Object? desc = null,
     Object? category = null,
+    Object? evolutionChainId = null,
   }) {
     return _then(_$PokemonSpeciesInfoImpl(
       genderRate: freezed == genderRate
@@ -107,6 +116,10 @@ class __$$PokemonSpeciesInfoImplCopyWithImpl<$Res>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
+      evolutionChainId: null == evolutionChainId
+          ? _value.evolutionChainId
+          : evolutionChainId // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -115,7 +128,10 @@ class __$$PokemonSpeciesInfoImplCopyWithImpl<$Res>
 
 class _$PokemonSpeciesInfoImpl implements _PokemonSpeciesInfo {
   _$PokemonSpeciesInfoImpl(
-      {this.genderRate, required this.desc, required this.category});
+      {this.genderRate,
+      required this.desc,
+      required this.category,
+      required this.evolutionChainId});
 
   @override
   final double? genderRate;
@@ -123,10 +139,12 @@ class _$PokemonSpeciesInfoImpl implements _PokemonSpeciesInfo {
   final String desc;
   @override
   final String category;
+  @override
+  final int evolutionChainId;
 
   @override
   String toString() {
-    return 'PokemonSpeciesInfo(genderRate: $genderRate, desc: $desc, category: $category)';
+    return 'PokemonSpeciesInfo(genderRate: $genderRate, desc: $desc, category: $category, evolutionChainId: $evolutionChainId)';
   }
 
   @override
@@ -138,11 +156,14 @@ class _$PokemonSpeciesInfoImpl implements _PokemonSpeciesInfo {
                 other.genderRate == genderRate) &&
             (identical(other.desc, desc) || other.desc == desc) &&
             (identical(other.category, category) ||
-                other.category == category));
+                other.category == category) &&
+            (identical(other.evolutionChainId, evolutionChainId) ||
+                other.evolutionChainId == evolutionChainId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, genderRate, desc, category);
+  int get hashCode =>
+      Object.hash(runtimeType, genderRate, desc, category, evolutionChainId);
 
   @JsonKey(ignore: true)
   @override
@@ -156,7 +177,8 @@ abstract class _PokemonSpeciesInfo implements PokemonSpeciesInfo {
   factory _PokemonSpeciesInfo(
       {final double? genderRate,
       required final String desc,
-      required final String category}) = _$PokemonSpeciesInfoImpl;
+      required final String category,
+      required final int evolutionChainId}) = _$PokemonSpeciesInfoImpl;
 
   @override
   double? get genderRate;
@@ -164,6 +186,8 @@ abstract class _PokemonSpeciesInfo implements PokemonSpeciesInfo {
   String get desc;
   @override
   String get category;
+  @override
+  int get evolutionChainId;
   @override
   @JsonKey(ignore: true)
   _$$PokemonSpeciesInfoImplCopyWith<_$PokemonSpeciesInfoImpl> get copyWith =>

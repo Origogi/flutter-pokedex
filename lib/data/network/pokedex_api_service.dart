@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokedex/data/dto/pokemon_data.dart';
+import 'package:pokedex/data/dto/pokemon_evolution_chain_data.dart';
 import 'package:pokedex/data/dto/pokemon_species_data.dart';
 import 'package:pokedex/data/dto/pokemon_type_detail_data.dart';
 import 'package:http/http.dart' as http;
@@ -10,8 +11,8 @@ class PokedexApiService {
   final String baseUrl = 'https://pokeapi.co/api/v2/';
   final client = http.Client();
 
-  Future<PokemonData> getPokemonDetails(int id) async {
-    final uri = Uri.parse('$baseUrl/pokemon/$id');
+  Future<PokemonData> getPokemonDetails(int idOrName) async {
+    final uri = Uri.parse('$baseUrl/pokemon/$idOrName');
     final response = await http.get(uri);
 
     var jsonBody =
@@ -38,6 +39,16 @@ class PokedexApiService {
         jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
 
     return PokemonTypeDetailData.fromJson(jsonBody);
+  }
+
+  Future<PokemonEvolutionChainData> getPokemonEvolutionChain(int id) async {
+    final uri = Uri.parse('$baseUrl/evolution-chain/$id');
+    final response = await http.get(uri);
+
+    var jsonBody =
+        jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
+
+    return PokemonEvolutionChainData.fromJson(jsonBody);
   }
 }
 

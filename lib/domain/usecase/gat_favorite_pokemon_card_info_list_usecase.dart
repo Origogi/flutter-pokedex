@@ -9,14 +9,12 @@ class GetFavoritePokemonCardInfoListUsecase {
   final PokemonInfoRepository _pokemonInfoRepository;
   final FavoriteRepository _favortieRepository;
 
-
   GetFavoritePokemonCardInfoListUsecase({
     required PokemonInfoRepository pokemonInfoRepository,
     required FavoriteRepository favoriteRepository,
-  }) : _pokemonInfoRepository = pokemonInfoRepository,
-       _favortieRepository = favoriteRepository;
+  })  : _pokemonInfoRepository = pokemonInfoRepository,
+        _favortieRepository = favoriteRepository;
 
-  
   Future<List<PokemonCardInfo>> execute() async {
     final favorites = await _favortieRepository.getAll();
 
@@ -26,17 +24,18 @@ class GetFavoritePokemonCardInfoListUsecase {
 
     infos.sort((a, b) => a.pokedexId.compareTo(b.pokedexId));
 
-    return infos.map(
-      (pokemonInfo) => PokemonCardInfo(
-        pokedexId: pokemonInfo.pokedexId,
-        name: pokemonInfo.name,
-        imageUrl: pokemonInfo.imageUrl,
-        types: pokemonInfo.types,
-      ),
-    ).toList();
+    return infos
+        .map(
+          (pokemonInfo) => PokemonCardInfo(
+            pokedexId: pokemonInfo.pokedexId,
+            name: pokemonInfo.name,
+            imageUrl: pokemonInfo.imageUrl,
+            types: pokemonInfo.types,
+          ),
+        )
+        .toList();
   }
 }
-
 
 final getFavoritePokemonCardInfoListUsecaseProvider = Provider.autoDispose(
   (ref) => GetFavoritePokemonCardInfoListUsecase(

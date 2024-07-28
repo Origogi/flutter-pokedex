@@ -18,6 +18,16 @@ Map<String, dynamic> _$$NameUrlDataImplToJson(_$NameUrlDataImpl instance) =>
       'url': instance.url,
     };
 
+_$UrlDataImpl _$$UrlDataImplFromJson(Map<String, dynamic> json) =>
+    _$UrlDataImpl(
+      url: json['url'] as String,
+    );
+
+Map<String, dynamic> _$$UrlDataImplToJson(_$UrlDataImpl instance) =>
+    <String, dynamic>{
+      'url': instance.url,
+    };
+
 _$ImageUrlSetDataImpl _$$ImageUrlSetDataImplFromJson(
         Map<String, dynamic> json) =>
     _$ImageUrlSetDataImpl(

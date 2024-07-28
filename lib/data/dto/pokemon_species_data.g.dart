@@ -16,6 +16,8 @@ _$PokemonSpeciesDataImpl _$$PokemonSpeciesDataImplFromJson(
       genera: (json['genera'] as List<dynamic>)
           .map((e) => GeneraData.fromJson(e as Map<String, dynamic>))
           .toList(),
+      evolutionChain:
+          UrlData.fromJson(json['evolution_chain'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$PokemonSpeciesDataImplToJson(
@@ -24,6 +26,7 @@ Map<String, dynamic> _$$PokemonSpeciesDataImplToJson(
       'gender_rate': instance.genderRate,
       'flavor_text_entries': instance.flavorTextEntries,
       'genera': instance.genera,
+      'evolution_chain': instance.evolutionChain,
     };
 
 _$FlavorTextEntryImpl _$$FlavorTextEntryImplFromJson(

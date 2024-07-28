@@ -27,10 +27,16 @@ class PokemonSpeciesInfoRepository {
       desc: engFlavorText,
       genderRate: genderRate,
       category: engCategory,
+      evolutionChainId: parseIDFromURL(pokemonSpeciesData.evolutionChain.url),
     );
   }
-}
 
+  int parseIDFromURL(String url) {
+    final uri = Uri.parse(url);
+    final segments = uri.pathSegments;
+    return int.parse(segments[segments.length - 2]);
+  }
+}
 
 final pokemonSpeciesInfoRepositoryProvider =
     Provider.autoDispose<PokemonSpeciesInfoRepository>((ref) {

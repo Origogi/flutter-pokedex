@@ -9,8 +9,6 @@ class WatchFavoritePokemonCardInfoListUsecase {
   final PokemonInfoRepository _pokemonInfoRepository;
   final FavoriteRepository _favortieRepository;
 
-  final StreamController<List<PokemonCardInfo>> _controller = StreamController<List<PokemonCardInfo>>.broadcast();
-
   WatchFavoritePokemonCardInfoListUsecase({
     required PokemonInfoRepository pokemonInfoRepository,
     required FavoriteRepository favoriteRepository,

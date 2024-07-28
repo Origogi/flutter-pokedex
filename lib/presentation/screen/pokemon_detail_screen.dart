@@ -227,7 +227,15 @@ class _Content extends StatelessWidget {
                       mainAxisSpacing: 12,
                       children: info.weaknesses
                           .map((type) => PokemonTypeChip.large(type))
-                          .toList())
+                          .toList()),
+                  const Gap(40),
+                  Text(
+                    "Evolutions",
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                  const Gap(12),
                 ],
               ),
             ),

@@ -12,6 +12,8 @@ class PokemonSpeciesData with _$PokemonSpeciesData {
     @JsonKey(name: 'flavor_text_entries')
     required List<FlavorTextEntry> flavorTextEntries,
     required List<GeneraData> genera,
+    @JsonKey(name: 'evolution_chain')
+    required UrlData evolutionChain,
   }) = _PokemonSpeciesData;
 
   factory PokemonSpeciesData.fromJson(Map<String, dynamic> json) =>

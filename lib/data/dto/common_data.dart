@@ -16,6 +16,16 @@ class NameUrlData with _$NameUrlData {
 }
 
 @freezed
+class UrlData with _$UrlData {
+  const factory UrlData({
+    required String url,
+  }) = _UrlData;
+
+  factory UrlData.fromJson(Map<String, dynamic> json) =>
+      _$UrlDataFromJson(json);
+}
+
+@freezed
 class ImageUrlSetData with _$ImageUrlSetData {
   const factory ImageUrlSetData({
     @JsonKey(name: 'front_default')
