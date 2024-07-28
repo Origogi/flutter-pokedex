@@ -50,12 +50,14 @@ _$SpritesDataImpl _$$SpritesDataImplFromJson(Map<String, dynamic> json) =>
     _$SpritesDataImpl(
       frontDefault: json['front_default'] as String,
       other: OtherData.fromJson(json['other'] as Map<String, dynamic>),
+      versions: VersionsData.fromJson(json['versions'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$SpritesDataImplToJson(_$SpritesDataImpl instance) =>
     <String, dynamic>{
       'front_default': instance.frontDefault,
       'other': instance.other,
+      'versions': instance.versions,
     };
 
 _$OtherDataImpl _$$OtherDataImplFromJson(Map<String, dynamic> json) =>
@@ -79,4 +81,27 @@ Map<String, dynamic> _$$PokemonAbilityDataImplToJson(
         _$PokemonAbilityDataImpl instance) =>
     <String, dynamic>{
       'ability': instance.ability,
+    };
+
+_$VersionsDataImpl _$$VersionsDataImplFromJson(Map<String, dynamic> json) =>
+    _$VersionsDataImpl(
+      generationVII: GenerationVIIData.fromJson(
+          json['generation-vii'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$VersionsDataImplToJson(_$VersionsDataImpl instance) =>
+    <String, dynamic>{
+      'generation-vii': instance.generationVII,
+    };
+
+_$GenerationVIIDataImpl _$$GenerationVIIDataImplFromJson(
+        Map<String, dynamic> json) =>
+    _$GenerationVIIDataImpl(
+      icons: ImageUrlSetData.fromJson(json['icons'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$GenerationVIIDataImplToJson(
+        _$GenerationVIIDataImpl instance) =>
+    <String, dynamic>{
+      'icons': instance.icons,
     };

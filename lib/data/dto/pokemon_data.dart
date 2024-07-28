@@ -39,6 +39,7 @@ class SpritesData with _$SpritesData {
     @JsonKey(name: 'front_default')
     required String frontDefault,
     required OtherData other,
+    required VersionsData versions,
   }) = _SpritesData;
 
   factory SpritesData.fromJson(Map<String, dynamic> json) =>
@@ -63,4 +64,25 @@ class PokemonAbilityData with _$PokemonAbilityData {
 
   factory PokemonAbilityData.fromJson(Map<String, dynamic> json) =>
       _$PokemonAbilityDataFromJson(json);
+}
+
+@freezed
+class VersionsData with _$VersionsData {
+  const factory VersionsData({
+    @JsonKey(name: 'generation-vii')
+    required GenerationVIIData generationVII,
+  }) = _VersionsData;
+
+  factory VersionsData.fromJson(Map<String, dynamic> json) =>
+      _$VersionsDataFromJson(json);
+}
+
+@freezed
+class GenerationVIIData with _$GenerationVIIData {
+  const factory GenerationVIIData({
+    required ImageUrlSetData icons,
+  }) = _GenerationVIIData;
+
+  factory GenerationVIIData.fromJson(Map<String, dynamic> json) =>
+      _$GenerationVIIDataFromJson(json);
 }

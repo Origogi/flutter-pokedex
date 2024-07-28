@@ -235,7 +235,12 @@ class _SmallWidget extends StatelessWidget {
                     height: 126,
                   ),
                 ),
-                Image.network(info.imageUrl),
+                Image.network(
+                  info.imageUrl,
+                  width: 80,
+                  height: 80,
+                  fit: BoxFit.contain,
+                ),
               ],
             ),
           ),

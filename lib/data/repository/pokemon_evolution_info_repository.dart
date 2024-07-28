@@ -37,7 +37,7 @@ class PokemonEvolutionInfoRepository {
     return PokemonCardInfo(            
       pokedexId: pokemonData.id,
       name: pokemonData.name,
-      imageUrl: pokemonData.sprites.frontDefault,
+      imageUrl: pokemonData.sprites.versions.generationVII.icons.frontDefault,
       types: pokemonData.types.map((e) => PokemonType.valueOf(e.type.name)).toList(),
     );
   }
