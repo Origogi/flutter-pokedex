@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:pokedex/data/dto/common_data.dart';
 
 part 'pokemon_species_info.freezed.dart';
 

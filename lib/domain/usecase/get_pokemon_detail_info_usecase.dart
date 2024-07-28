@@ -4,7 +4,6 @@ import 'package:pokedex/data/repository/pokemon_info_repository.dart';
 import 'package:pokedex/data/repository/pokemon_species_info_repository.dart';
 import 'package:pokedex/data/repository/pokemon_weakness_types_info_repository.dart';
 import 'package:pokedex/domain/model/pokemon_detail_info.dart';
-import 'package:pokedex/domain/model/pokemon_evolution_chain_info.dart';
 
 import 'package:pokedex/util/extentions.dart';
 
@@ -17,8 +16,6 @@ final pokemonDetailInfoUseCaseProvider =
       pokemonWeaknessTypesInfoProvider(pokemonInfo.types.first.name).future);
   final pokemonEvolutionInfo = await ref.watch(
       pokemonEvolutionInfoProvider(pokemonSpeciesInfo.evolutionChainId).future);
-
-  print(pokemonEvolutionInfo?.toList());
 
   return PokemonDetailInfo(
     pokedexId: pokemonInfo.pokedexId,
