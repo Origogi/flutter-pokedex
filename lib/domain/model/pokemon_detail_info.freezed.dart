@@ -26,6 +26,8 @@ mixin _$PokemonDetailInfo {
   double get height => throw _privateConstructorUsedError;
   double get weight => throw _privateConstructorUsedError;
   List<String> get abilities => throw _privateConstructorUsedError;
+  PokemonEvolutionChainInfo? get evolutionChainInfo =>
+      throw _privateConstructorUsedError;
   double? get genderRate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -50,7 +52,10 @@ abstract class $PokemonDetailInfoCopyWith<$Res> {
       double height,
       double weight,
       List<String> abilities,
+      PokemonEvolutionChainInfo? evolutionChainInfo,
       double? genderRate});
+
+  $PokemonEvolutionChainInfoCopyWith<$Res>? get evolutionChainInfo;
 }
 
 /// @nodoc
@@ -76,6 +81,7 @@ class _$PokemonDetailInfoCopyWithImpl<$Res, $Val extends PokemonDetailInfo>
     Object? height = null,
     Object? weight = null,
     Object? abilities = null,
+    Object? evolutionChainInfo = freezed,
     Object? genderRate = freezed,
   }) {
     return _then(_value.copyWith(
@@ -119,11 +125,28 @@ class _$PokemonDetailInfoCopyWithImpl<$Res, $Val extends PokemonDetailInfo>
           ? _value.abilities
           : abilities // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      evolutionChainInfo: freezed == evolutionChainInfo
+          ? _value.evolutionChainInfo
+          : evolutionChainInfo // ignore: cast_nullable_to_non_nullable
+              as PokemonEvolutionChainInfo?,
       genderRate: freezed == genderRate
           ? _value.genderRate
           : genderRate // ignore: cast_nullable_to_non_nullable
               as double?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PokemonEvolutionChainInfoCopyWith<$Res>? get evolutionChainInfo {
+    if (_value.evolutionChainInfo == null) {
+      return null;
+    }
+
+    return $PokemonEvolutionChainInfoCopyWith<$Res>(_value.evolutionChainInfo!,
+        (value) {
+      return _then(_value.copyWith(evolutionChainInfo: value) as $Val);
+    });
   }
 }
 
@@ -146,7 +169,11 @@ abstract class _$$PokemonDetailInfoImplCopyWith<$Res>
       double height,
       double weight,
       List<String> abilities,
+      PokemonEvolutionChainInfo? evolutionChainInfo,
       double? genderRate});
+
+  @override
+  $PokemonEvolutionChainInfoCopyWith<$Res>? get evolutionChainInfo;
 }
 
 /// @nodoc
@@ -170,6 +197,7 @@ class __$$PokemonDetailInfoImplCopyWithImpl<$Res>
     Object? height = null,
     Object? weight = null,
     Object? abilities = null,
+    Object? evolutionChainInfo = freezed,
     Object? genderRate = freezed,
   }) {
     return _then(_$PokemonDetailInfoImpl(
@@ -213,6 +241,10 @@ class __$$PokemonDetailInfoImplCopyWithImpl<$Res>
           ? _value._abilities
           : abilities // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      evolutionChainInfo: freezed == evolutionChainInfo
+          ? _value.evolutionChainInfo
+          : evolutionChainInfo // ignore: cast_nullable_to_non_nullable
+              as PokemonEvolutionChainInfo?,
       genderRate: freezed == genderRate
           ? _value.genderRate
           : genderRate // ignore: cast_nullable_to_non_nullable
@@ -235,6 +267,7 @@ class _$PokemonDetailInfoImpl implements _PokemonDetailInfo {
       required this.height,
       required this.weight,
       required final List<String> abilities,
+      this.evolutionChainInfo,
       this.genderRate})
       : _types = types,
         _weaknesses = weaknesses,
@@ -279,11 +312,13 @@ class _$PokemonDetailInfoImpl implements _PokemonDetailInfo {
   }
 
   @override
+  final PokemonEvolutionChainInfo? evolutionChainInfo;
+  @override
   final double? genderRate;
 
   @override
   String toString() {
-    return 'PokemonDetailInfo(pokedexId: $pokedexId, name: $name, imageUrl: $imageUrl, types: $types, weaknesses: $weaknesses, desc: $desc, category: $category, height: $height, weight: $weight, abilities: $abilities, genderRate: $genderRate)';
+    return 'PokemonDetailInfo(pokedexId: $pokedexId, name: $name, imageUrl: $imageUrl, types: $types, weaknesses: $weaknesses, desc: $desc, category: $category, height: $height, weight: $weight, abilities: $abilities, evolutionChainInfo: $evolutionChainInfo, genderRate: $genderRate)';
   }
 
   @override
@@ -306,6 +341,8 @@ class _$PokemonDetailInfoImpl implements _PokemonDetailInfo {
             (identical(other.weight, weight) || other.weight == weight) &&
             const DeepCollectionEquality()
                 .equals(other._abilities, _abilities) &&
+            (identical(other.evolutionChainInfo, evolutionChainInfo) ||
+                other.evolutionChainInfo == evolutionChainInfo) &&
             (identical(other.genderRate, genderRate) ||
                 other.genderRate == genderRate));
   }
@@ -323,6 +360,7 @@ class _$PokemonDetailInfoImpl implements _PokemonDetailInfo {
       height,
       weight,
       const DeepCollectionEquality().hash(_abilities),
+      evolutionChainInfo,
       genderRate);
 
   @JsonKey(ignore: true)
@@ -345,6 +383,7 @@ abstract class _PokemonDetailInfo implements PokemonDetailInfo {
       required final double height,
       required final double weight,
       required final List<String> abilities,
+      final PokemonEvolutionChainInfo? evolutionChainInfo,
       final double? genderRate}) = _$PokemonDetailInfoImpl;
 
   @override
@@ -367,6 +406,8 @@ abstract class _PokemonDetailInfo implements PokemonDetailInfo {
   double get weight;
   @override
   List<String> get abilities;
+  @override
+  PokemonEvolutionChainInfo? get evolutionChainInfo;
   @override
   double? get genderRate;
   @override

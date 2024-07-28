@@ -1,5 +1,6 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pokedex/domain/model/pokemon_evolution_chain_info.dart';
 import 'package:pokedex/domain/model/pokemon_type.dart';
 
 
@@ -18,6 +19,7 @@ class PokemonDetailInfo with _$PokemonDetailInfo {
     required double height,
     required double weight,
     required List<String> abilities,  
+    PokemonEvolutionChainInfo? evolutionChainInfo,
     double? genderRate,
   }) = _PokemonDetailInfo;
 }

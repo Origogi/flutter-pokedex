@@ -13,6 +13,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/domain/model/pokemon_detail_info.dart';
 import 'package:pokedex/gen/assets.gen.dart';
+import 'package:pokedex/presentation/components/pokemon_evolution_info_view.dart';
 import 'package:pokedex/presentation/components/pokemon_gender_ratio_view.dart';
 import 'package:pokedex/presentation/components/pokemon_status_group_view.dart';
 import 'package:pokedex/presentation/components/pokemon_type_chip.dart';
@@ -236,6 +237,8 @@ class _Content extends StatelessWidget {
                         ),
                   ),
                   const Gap(12),
+
+                  PokemonEvolutionInfoView(info: info.evolutionChainInfo!),
                 ],
               ),
             ),

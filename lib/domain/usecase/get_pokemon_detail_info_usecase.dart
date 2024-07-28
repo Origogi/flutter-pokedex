@@ -31,5 +31,6 @@ final pokemonDetailInfoUseCaseProvider =
         .toList(),
     genderRate: pokemonSpeciesInfo.genderRate,
     weaknesses: pokemonWeaknessTypes.weaknesses,
+    evolutionChainInfo: pokemonEvolutionInfo,
   );
 });
