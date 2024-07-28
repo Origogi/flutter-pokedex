@@ -486,7 +486,6 @@ mixin _$SpritesData {
   @JsonKey(name: 'front_default')
   String get frontDefault => throw _privateConstructorUsedError;
   OtherData get other => throw _privateConstructorUsedError;
-  VersionsData get versions => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -501,12 +500,9 @@ abstract class $SpritesDataCopyWith<$Res> {
       _$SpritesDataCopyWithImpl<$Res, SpritesData>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'front_default') String frontDefault,
-      OtherData other,
-      VersionsData versions});
+      {@JsonKey(name: 'front_default') String frontDefault, OtherData other});
 
   $OtherDataCopyWith<$Res> get other;
-  $VersionsDataCopyWith<$Res> get versions;
 }
 
 /// @nodoc
@@ -524,7 +520,6 @@ class _$SpritesDataCopyWithImpl<$Res, $Val extends SpritesData>
   $Res call({
     Object? frontDefault = null,
     Object? other = null,
-    Object? versions = null,
   }) {
     return _then(_value.copyWith(
       frontDefault: null == frontDefault
@@ -535,10 +530,6 @@ class _$SpritesDataCopyWithImpl<$Res, $Val extends SpritesData>
           ? _value.other
           : other // ignore: cast_nullable_to_non_nullable
               as OtherData,
-      versions: null == versions
-          ? _value.versions
-          : versions // ignore: cast_nullable_to_non_nullable
-              as VersionsData,
     ) as $Val);
   }
 
@@ -547,14 +538,6 @@ class _$SpritesDataCopyWithImpl<$Res, $Val extends SpritesData>
   $OtherDataCopyWith<$Res> get other {
     return $OtherDataCopyWith<$Res>(_value.other, (value) {
       return _then(_value.copyWith(other: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $VersionsDataCopyWith<$Res> get versions {
-    return $VersionsDataCopyWith<$Res>(_value.versions, (value) {
-      return _then(_value.copyWith(versions: value) as $Val);
     });
   }
 }
@@ -568,14 +551,10 @@ abstract class _$$SpritesDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'front_default') String frontDefault,
-      OtherData other,
-      VersionsData versions});
+      {@JsonKey(name: 'front_default') String frontDefault, OtherData other});
 
   @override
   $OtherDataCopyWith<$Res> get other;
-  @override
-  $VersionsDataCopyWith<$Res> get versions;
 }
 
 /// @nodoc
@@ -591,7 +570,6 @@ class __$$SpritesDataImplCopyWithImpl<$Res>
   $Res call({
     Object? frontDefault = null,
     Object? other = null,
-    Object? versions = null,
   }) {
     return _then(_$SpritesDataImpl(
       frontDefault: null == frontDefault
@@ -602,10 +580,6 @@ class __$$SpritesDataImplCopyWithImpl<$Res>
           ? _value.other
           : other // ignore: cast_nullable_to_non_nullable
               as OtherData,
-      versions: null == versions
-          ? _value.versions
-          : versions // ignore: cast_nullable_to_non_nullable
-              as VersionsData,
     ));
   }
 }
@@ -615,8 +589,7 @@ class __$$SpritesDataImplCopyWithImpl<$Res>
 class _$SpritesDataImpl implements _SpritesData {
   const _$SpritesDataImpl(
       {@JsonKey(name: 'front_default') required this.frontDefault,
-      required this.other,
-      required this.versions});
+      required this.other});
 
   factory _$SpritesDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$SpritesDataImplFromJson(json);
@@ -626,12 +599,10 @@ class _$SpritesDataImpl implements _SpritesData {
   final String frontDefault;
   @override
   final OtherData other;
-  @override
-  final VersionsData versions;
 
   @override
   String toString() {
-    return 'SpritesData(frontDefault: $frontDefault, other: $other, versions: $versions)';
+    return 'SpritesData(frontDefault: $frontDefault, other: $other)';
   }
 
   @override
@@ -641,14 +612,12 @@ class _$SpritesDataImpl implements _SpritesData {
             other is _$SpritesDataImpl &&
             (identical(other.frontDefault, frontDefault) ||
                 other.frontDefault == frontDefault) &&
-            (identical(other.other, this.other) || other.other == this.other) &&
-            (identical(other.versions, versions) ||
-                other.versions == versions));
+            (identical(other.other, this.other) || other.other == this.other));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, frontDefault, other, versions);
+  int get hashCode => Object.hash(runtimeType, frontDefault, other);
 
   @JsonKey(ignore: true)
   @override
@@ -667,8 +636,7 @@ class _$SpritesDataImpl implements _SpritesData {
 abstract class _SpritesData implements SpritesData {
   const factory _SpritesData(
       {@JsonKey(name: 'front_default') required final String frontDefault,
-      required final OtherData other,
-      required final VersionsData versions}) = _$SpritesDataImpl;
+      required final OtherData other}) = _$SpritesDataImpl;
 
   factory _SpritesData.fromJson(Map<String, dynamic> json) =
       _$SpritesDataImpl.fromJson;
@@ -678,8 +646,6 @@ abstract class _SpritesData implements SpritesData {
   String get frontDefault;
   @override
   OtherData get other;
-  @override
-  VersionsData get versions;
   @override
   @JsonKey(ignore: true)
   _$$SpritesDataImplCopyWith<_$SpritesDataImpl> get copyWith =>
@@ -984,312 +950,5 @@ abstract class _PokemonAbilityData implements PokemonAbilityData {
   @override
   @JsonKey(ignore: true)
   _$$PokemonAbilityDataImplCopyWith<_$PokemonAbilityDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-VersionsData _$VersionsDataFromJson(Map<String, dynamic> json) {
-  return _VersionsData.fromJson(json);
-}
-
-/// @nodoc
-mixin _$VersionsData {
-  @JsonKey(name: 'generation-vii')
-  GenerationVIIData get generationVII => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $VersionsDataCopyWith<VersionsData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $VersionsDataCopyWith<$Res> {
-  factory $VersionsDataCopyWith(
-          VersionsData value, $Res Function(VersionsData) then) =
-      _$VersionsDataCopyWithImpl<$Res, VersionsData>;
-  @useResult
-  $Res call({@JsonKey(name: 'generation-vii') GenerationVIIData generationVII});
-
-  $GenerationVIIDataCopyWith<$Res> get generationVII;
-}
-
-/// @nodoc
-class _$VersionsDataCopyWithImpl<$Res, $Val extends VersionsData>
-    implements $VersionsDataCopyWith<$Res> {
-  _$VersionsDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? generationVII = null,
-  }) {
-    return _then(_value.copyWith(
-      generationVII: null == generationVII
-          ? _value.generationVII
-          : generationVII // ignore: cast_nullable_to_non_nullable
-              as GenerationVIIData,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $GenerationVIIDataCopyWith<$Res> get generationVII {
-    return $GenerationVIIDataCopyWith<$Res>(_value.generationVII, (value) {
-      return _then(_value.copyWith(generationVII: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$VersionsDataImplCopyWith<$Res>
-    implements $VersionsDataCopyWith<$Res> {
-  factory _$$VersionsDataImplCopyWith(
-          _$VersionsDataImpl value, $Res Function(_$VersionsDataImpl) then) =
-      __$$VersionsDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@JsonKey(name: 'generation-vii') GenerationVIIData generationVII});
-
-  @override
-  $GenerationVIIDataCopyWith<$Res> get generationVII;
-}
-
-/// @nodoc
-class __$$VersionsDataImplCopyWithImpl<$Res>
-    extends _$VersionsDataCopyWithImpl<$Res, _$VersionsDataImpl>
-    implements _$$VersionsDataImplCopyWith<$Res> {
-  __$$VersionsDataImplCopyWithImpl(
-      _$VersionsDataImpl _value, $Res Function(_$VersionsDataImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? generationVII = null,
-  }) {
-    return _then(_$VersionsDataImpl(
-      generationVII: null == generationVII
-          ? _value.generationVII
-          : generationVII // ignore: cast_nullable_to_non_nullable
-              as GenerationVIIData,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$VersionsDataImpl implements _VersionsData {
-  const _$VersionsDataImpl(
-      {@JsonKey(name: 'generation-vii') required this.generationVII});
-
-  factory _$VersionsDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$VersionsDataImplFromJson(json);
-
-  @override
-  @JsonKey(name: 'generation-vii')
-  final GenerationVIIData generationVII;
-
-  @override
-  String toString() {
-    return 'VersionsData(generationVII: $generationVII)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$VersionsDataImpl &&
-            (identical(other.generationVII, generationVII) ||
-                other.generationVII == generationVII));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, generationVII);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$VersionsDataImplCopyWith<_$VersionsDataImpl> get copyWith =>
-      __$$VersionsDataImplCopyWithImpl<_$VersionsDataImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$VersionsDataImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _VersionsData implements VersionsData {
-  const factory _VersionsData(
-      {@JsonKey(name: 'generation-vii')
-      required final GenerationVIIData generationVII}) = _$VersionsDataImpl;
-
-  factory _VersionsData.fromJson(Map<String, dynamic> json) =
-      _$VersionsDataImpl.fromJson;
-
-  @override
-  @JsonKey(name: 'generation-vii')
-  GenerationVIIData get generationVII;
-  @override
-  @JsonKey(ignore: true)
-  _$$VersionsDataImplCopyWith<_$VersionsDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-GenerationVIIData _$GenerationVIIDataFromJson(Map<String, dynamic> json) {
-  return _GenerationVIIData.fromJson(json);
-}
-
-/// @nodoc
-mixin _$GenerationVIIData {
-  ImageUrlSetData get icons => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $GenerationVIIDataCopyWith<GenerationVIIData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $GenerationVIIDataCopyWith<$Res> {
-  factory $GenerationVIIDataCopyWith(
-          GenerationVIIData value, $Res Function(GenerationVIIData) then) =
-      _$GenerationVIIDataCopyWithImpl<$Res, GenerationVIIData>;
-  @useResult
-  $Res call({ImageUrlSetData icons});
-
-  $ImageUrlSetDataCopyWith<$Res> get icons;
-}
-
-/// @nodoc
-class _$GenerationVIIDataCopyWithImpl<$Res, $Val extends GenerationVIIData>
-    implements $GenerationVIIDataCopyWith<$Res> {
-  _$GenerationVIIDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? icons = null,
-  }) {
-    return _then(_value.copyWith(
-      icons: null == icons
-          ? _value.icons
-          : icons // ignore: cast_nullable_to_non_nullable
-              as ImageUrlSetData,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ImageUrlSetDataCopyWith<$Res> get icons {
-    return $ImageUrlSetDataCopyWith<$Res>(_value.icons, (value) {
-      return _then(_value.copyWith(icons: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$GenerationVIIDataImplCopyWith<$Res>
-    implements $GenerationVIIDataCopyWith<$Res> {
-  factory _$$GenerationVIIDataImplCopyWith(_$GenerationVIIDataImpl value,
-          $Res Function(_$GenerationVIIDataImpl) then) =
-      __$$GenerationVIIDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ImageUrlSetData icons});
-
-  @override
-  $ImageUrlSetDataCopyWith<$Res> get icons;
-}
-
-/// @nodoc
-class __$$GenerationVIIDataImplCopyWithImpl<$Res>
-    extends _$GenerationVIIDataCopyWithImpl<$Res, _$GenerationVIIDataImpl>
-    implements _$$GenerationVIIDataImplCopyWith<$Res> {
-  __$$GenerationVIIDataImplCopyWithImpl(_$GenerationVIIDataImpl _value,
-      $Res Function(_$GenerationVIIDataImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? icons = null,
-  }) {
-    return _then(_$GenerationVIIDataImpl(
-      icons: null == icons
-          ? _value.icons
-          : icons // ignore: cast_nullable_to_non_nullable
-              as ImageUrlSetData,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$GenerationVIIDataImpl implements _GenerationVIIData {
-  const _$GenerationVIIDataImpl({required this.icons});
-
-  factory _$GenerationVIIDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GenerationVIIDataImplFromJson(json);
-
-  @override
-  final ImageUrlSetData icons;
-
-  @override
-  String toString() {
-    return 'GenerationVIIData(icons: $icons)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GenerationVIIDataImpl &&
-            (identical(other.icons, icons) || other.icons == icons));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, icons);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GenerationVIIDataImplCopyWith<_$GenerationVIIDataImpl> get copyWith =>
-      __$$GenerationVIIDataImplCopyWithImpl<_$GenerationVIIDataImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GenerationVIIDataImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _GenerationVIIData implements GenerationVIIData {
-  const factory _GenerationVIIData({required final ImageUrlSetData icons}) =
-      _$GenerationVIIDataImpl;
-
-  factory _GenerationVIIData.fromJson(Map<String, dynamic> json) =
-      _$GenerationVIIDataImpl.fromJson;
-
-  @override
-  ImageUrlSetData get icons;
-  @override
-  @JsonKey(ignore: true)
-  _$$GenerationVIIDataImplCopyWith<_$GenerationVIIDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -200,7 +200,7 @@ class _SmallWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    final name = info.name.split('-').first.capitalizeFirst();
+    final name = info.name.replaceAll('-', " ").capitalizeFirst();
 
     return Container(
       height: 74,
@@ -240,6 +240,7 @@ class _SmallWidget extends StatelessWidget {
                   width: 80,
                   height: 80,
                   fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) => const SizedBox.shrink(),
                 ),
               ],
             ),
