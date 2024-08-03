@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:pokedex/domain/model/pokemon_card_info.dart';
 import 'package:pokedex/gen/assets.gen.dart';
 import 'package:pokedex/presentation/components/pokemon_card_view.dart';
+import 'package:pokedex/presentation/theme/common_colors.dart';
 import 'package:pokedex/presentation/viewmodel/favorite_tab_view_model.dart';
 
 class FavoritesTab extends HookConsumerWidget {
@@ -40,7 +41,7 @@ class FavoritesTab extends HookConsumerWidget {
                 ),
                 const Divider(
                   height: 1,
-                  color: Color(0xFFF2F2F2),
+                  color: Black50,
                 ),
                 Flexible(
                   child:

@@ -10,7 +10,7 @@ import 'package:pokedex/presentation/tabs/favorites_tab.dart';
 import 'package:pokedex/presentation/tabs/pokedex_tab.dart';
 import 'package:pokedex/presentation/tabs/profile_tab.dart';
 import 'package:pokedex/presentation/tabs/regions_tab.dart';
-import 'package:pokedex/presentation/theme/colors.dart';
+import 'package:pokedex/presentation/theme/common_colors.dart';
 
 @RoutePage()
 class HomeScreen extends HookConsumerWidget {

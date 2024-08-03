@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:pokedex/gen/assets.gen.dart';
+import 'package:pokedex/presentation/theme/common_colors.dart';
 
 class ProfileTab extends StatelessWidget {
   const ProfileTab({
@@ -33,7 +34,7 @@ class ProfileTab extends StatelessWidget {
         ),
         const Divider(
           height: 1,
-          color: Color(0xFFF2F2F2),
+          color: Black50,
         ),
         const Gap(24),
         Padding(
@@ -50,7 +51,7 @@ class ProfileTab extends StatelessWidget {
               Text(
                 "Anomymous",
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: const Color(0xFF4D4D4D),
+                      color: Black700,
                     ),
               ),
               const Gap(16),
@@ -58,7 +59,7 @@ class ProfileTab extends StatelessWidget {
               Text(
                 "anomymous@test.com",
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: const Color(0xFF4D4D4D),
+                      color: Black700,
                     ),
               ),
             ],

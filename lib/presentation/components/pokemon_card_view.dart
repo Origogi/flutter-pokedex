@@ -8,7 +8,7 @@ import 'package:pokedex/domain/model/pokemon_card_info.dart';
 import 'package:pokedex/gen/assets.gen.dart';
 import 'package:pokedex/presentation/components/pokemon_type_chip.dart';
 import 'package:pokedex/presentation/routers.dart';
-import 'package:pokedex/presentation/theme/colors.dart';
+import 'package:pokedex/presentation/theme/common_colors.dart';
 import 'package:pokedex/presentation/viewmodel/favorite_button_view_model.dart';
 import 'package:pokedex/util/extentions.dart';
 
@@ -206,7 +206,7 @@ class _SmallWidget extends StatelessWidget {
       height: 74,
       decoration: BoxDecoration(
         border: Border.all(
-          color: const Color(0xFFE6E6E6),
+          color: Black100,
           width: 1.0,
         ),
         borderRadius: BorderRadius.circular(96.0),

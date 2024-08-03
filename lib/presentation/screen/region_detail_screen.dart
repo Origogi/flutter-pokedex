@@ -7,6 +7,7 @@ import 'package:pokedex/domain/model/pokedex_id_range.dart';
 import 'package:pokedex/domain/model/region_type.dart';
 import 'package:pokedex/gen/assets.gen.dart';
 import 'package:pokedex/presentation/components/pokemon_card_view.dart';
+import 'package:pokedex/presentation/theme/common_colors.dart';
 import 'package:pokedex/presentation/viewmodel/pokemon_list_view_model.dart';
 
 @RoutePage()
@@ -73,7 +74,7 @@ class RegionDetailScreen extends HookConsumerWidget {
         children: [
           const Divider(
             height: 1,
-            color: Color(0xFFF2F2F2),
+            color: Black50,
           ),
           Flexible(
             child: AnimatedSwitcher(

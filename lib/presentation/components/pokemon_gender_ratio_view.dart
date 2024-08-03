@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:pokedex/gen/assets.gen.dart';
+import 'package:pokedex/presentation/theme/common_colors.dart';
 
 class PokemonGenderRatioView extends StatelessWidget {
   const PokemonGenderRatioView({
@@ -119,14 +120,14 @@ class _RatioView extends StatelessWidget {
                 flex: maleRatio.toInt(),
                 child: Container(
                   height: 8,
-                  color: const Color(0xFF2551C3),
+                  color: MaleColor,
                 ),
               ),
               Flexible(
                 flex: femaleRatio.toInt(),
                 child: Container(
                   height: 8,
-                  color: const Color(0xFFFF7596),
+                  color: FemaleColor,
                 ),
               ),
             ],

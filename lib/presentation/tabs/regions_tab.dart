@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:pokedex/domain/model/region_type.dart';
 import 'package:pokedex/presentation/routers.dart';
+import 'package:pokedex/presentation/theme/common_colors.dart';
 
 class RegionsTab extends StatelessWidget {
   const RegionsTab({
@@ -24,7 +25,7 @@ class RegionsTab extends StatelessWidget {
         ),
         const Divider(
           height: 1,
-          color: Color(0xFFF2F2F2),
+          color: Black50,
         ),
         Expanded(
           child: ListView(
@@ -110,7 +111,7 @@ class _RegionItem extends StatelessWidget {
                           .headlineSmall
                           ?.copyWith(
                               fontWeight: FontWeight.w600,
-                              color: const Color(0xFFCCCCCC)),
+                              color: Black200),
                     ),
                   ],
                 ),
