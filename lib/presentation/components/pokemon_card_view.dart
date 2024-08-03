@@ -106,7 +106,7 @@ class _MediumWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    final name = info.name.split('-').first.capitalizeFirst();
+    final name = info.name.replaceAll('-', " ").capitalizeFirst();
 
     return GestureDetector(
       onTap: () => context.pushRoute(

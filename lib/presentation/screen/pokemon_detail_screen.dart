@@ -190,6 +190,8 @@ class _Content extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final name = info.name.replaceAll('-', " ").capitalizeFirst();
+
     return SingleChildScrollView(
       physics: ClampingScrollPhysics(),
       child: Container(
@@ -235,7 +237,7 @@ class _Content extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    info.name.capitalizeFirst(),
+                    name,
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   Text(
