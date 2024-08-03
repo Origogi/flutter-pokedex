@@ -1,4 +1,3 @@
-
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:async';
@@ -43,7 +42,11 @@ class PokemonDetailScreen extends HookConsumerWidget {
         alignment: Alignment.topCenter,
         duration: const Duration(milliseconds: 300),
         firstChild: _Placeholder(),
-        secondChild: info != null ? _Content(info: info) : const SizedBox(),
+        secondChild: info != null
+            ? _Content(
+                info: info,
+              )
+            : const SizedBox(),
         crossFadeState:
             info == null ? CrossFadeState.showFirst : CrossFadeState.showSecond,
       ),
@@ -54,21 +57,78 @@ class PokemonDetailScreen extends HookConsumerWidget {
 class _Placeholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Shimmer.fromColors(
-          baseColor: Colors.grey,
-          period: const Duration(milliseconds: 2500),
-          highlightColor: Colors.grey.withOpacity(0.6),
-          child: PokemonTypeBackground(
-            color: Colors.grey,
+        Stack(
+          children: [
+            _DefaultShimmer(
+              child: PokemonTypeBackground(
+                color: Colors.grey,
+              ),
+            ),
+            Positioned(
+              left: 16,
+              top: 16 + MediaQuery.of(context).padding.top,
+              child: _BackButton(),
+            ),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 16,
+            right: 16,
+            top: 18,
           ),
-        ),
-        Positioned(
-          left: 16,
-          top: 16 + MediaQuery.of(context).padding.top,
-          child: _BackButton(),
-        ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _DefaultShimmer(
+                child: Container(
+                  height: 48,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              Gap(8),
+              _DefaultShimmer(
+                child: Container(
+                  height: 22,
+                  width: 68,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
+              Gap(24),
+              _DefaultShimmer(
+                child: Container(
+                  height: 36,
+                  width: 124,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(67),
+                  ),
+                ),
+              ),
+              Gap(24),
+              _DefaultShimmer(
+                child: Container(
+                  height: 100,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        )
       ],
     );
   }
@@ -237,7 +297,6 @@ class _Content extends StatelessWidget {
                         ),
                   ),
                   const Gap(12),
-
                   PokemonEvolutionInfoView(info: info.evolutionChainInfo!),
                 ],
               ),
@@ -357,5 +416,21 @@ class _PokemonImage extends HookConsumerWidget {
       ),
     );
     return completer.future;
+  }
+}
+
+class _DefaultShimmer extends StatelessWidget {
+  const _DefaultShimmer({
+    required this.child,
+  });
+  final Widget child;
+  @override
+  Widget build(BuildContext context) {
+    return Shimmer.fromColors(
+      baseColor: Colors.grey,
+      period: const Duration(milliseconds: 2500),
+      highlightColor: Colors.grey.withOpacity(0.6),
+      child: child,
+    );
   }
 }
