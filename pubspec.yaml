@@ -37,13 +37,6 @@ dev_dependencies:
   auto_route_generator: 8.0.0
   freezed: 2.5.2
   json_serializable: 6.8.0
-  flutter_launcher_icons: "^0.13.1"
-
-flutter_launcher_icons:
-  android: "launcher_icon"
-  ios: true
-  image_path: "assets/app_icon/icon.png"
-  min_sdk_android: 21 # android min sdk min:16, default 21
 
 flutter:
   uses-material-design: true
