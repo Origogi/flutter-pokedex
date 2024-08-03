@@ -25,7 +25,7 @@ Riverpod
 ## TODO
 
 - [ ] DetailScreen
-  - [ ] Evolution info view
+  - [x] Evolution info view
   - [ ] Loading shimmer view
 - [ ] Favorite Feature
   - [x] Add favorite
