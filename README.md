@@ -21,7 +21,7 @@ This Pokedex app was built using Flutter, allowing users to explore and search f
 ## Screenshots
 
 <div align="center">
-    <img src="https://github.com/Origogi/android-compose-pokedex/assets/35194820/1ac3c65c-32d6-4d24-a877-e03e1a26dbc3" width="25%">
+    <img src="https://github.com/user-attachments/assets/65121076-06f3-4c66-a4c5-5c67d1af30f5" width="25%">
     <img src="https://github.com/Origogi/android-compose-pokedex/assets/35194820/ba01a0e3-a5de-4757-8fd0-61848c889924" width="25%">
     <img src="https://github.com/Origogi/android-compose-pokedex/assets/35194820/c9daa5ac-481d-47fd-9f01-86994aebd9ab" width="25%">
 
@@ -29,12 +29,12 @@ This Pokedex app was built using Flutter, allowing users to explore and search f
 <div align="center">
     <img src="https://github.com/Origogi/android-compose-pokedex/assets/35194820/30b1cc3c-ff05-456f-a5a5-a23a04de6723" width="25%">
     <img src="https://github.com/Origogi/android-compose-pokedex/assets/35194820/b4a822f0-1af4-4a2e-9963-4e52a9465c40" width="25%">
-    <img src="https://github.com/Origogi/android-compose-pokedex/assets/35194820/3eedd2fd-1c7c-4545-91cf-6c09d78d267b" width="25%">
+    <img src="https://github.com/user-attachments/assets/c96760b7-920a-4686-bcc1-1bda520ff9fe" width="25%">
 </div>
 <div align="center">
-    <img src="https://github.com/Origogi/android-compose-pokedex/assets/35194820/01c1fb3f-5a22-4590-bbe6-c1f80f6f46a4" width="25%">
-    <img src="https://github.com/Origogi/android-compose-pokedex/assets/35194820/83411ad7-1fda-40e5-a622-9bb89d35a762" width="25%">
-    <img src="https://github.com/Origogi/android-compose-pokedex/assets/35194820/b5a6a693-4fcb-4e9d-8da2-e5509bc41c12" width="25%">
+    <img src="https://github.com/user-attachments/assets/f478a6f8-3ea2-4e30-950b-87edf79b1cc9" width="25%">
+    <img src="https://github.com/user-attachments/assets/c13c2cfa-e88a-4a41-ba97-753d68cb8877" width="25%">
+    <img src="https://github.com/user-attachments/assets/0009adc9-7856-423e-8adb-25499cb023a6" width="25%">
 </div>
 
 ## State Management Library
