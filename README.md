@@ -21,13 +21,13 @@ This Pokedex app was built using Flutter, allowing users to explore and search f
 ## Screenshots
 
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/65121076-06f3-4c66-a4c5-5c67d1af30f5" width="25%">
-    <img src="https://github.com/Origogi/android-compose-pokedex/assets/35194820/ba01a0e3-a5de-4757-8fd0-61848c889924" width="25%">
+    <img src="./readme_assets/home.webp" width="25%">
+    <img src="./readme_assets/infinite_scroll.webp" width="25%">
     <img src="https://github.com/user-attachments/assets/3885503c-33d7-41f4-876a-73c4bba8e8ac" width="25%">
 
 </div>
 <div align="center">
-    <img src="https://github.com/Origogi/android-compose-pokedex/assets/35194820/30b1cc3c-ff05-456f-a5a5-a23a04de6723" width="25%">
+    <img src="./readme_assets/detail.webp" width="25%">
     <img src="https://github.com/Origogi/android-compose-pokedex/assets/35194820/b4a822f0-1af4-4a2e-9963-4e52a9465c40" width="25%">
     <img src="https://github.com/user-attachments/assets/c96760b7-920a-4686-bcc1-1bda520ff9fe" width="25%">
 </div>
