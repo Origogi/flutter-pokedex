@@ -23,35 +23,46 @@ This Pokedex app was built using Flutter, allowing users to explore and search f
 <div align="center">
     <img src="./readme_assets/home.webp" width="25%">
     <img src="./readme_assets/infinite_scroll.webp" width="25%">
-    <img src="https://github.com/user-attachments/assets/3885503c-33d7-41f4-876a-73c4bba8e8ac" width="25%">
+    <img src="./readme_assets/region.webp" width="25%">
 
 </div>
 <div align="center">
     <img src="./readme_assets/detail.webp" width="25%">
-    <img src="https://github.com/Origogi/android-compose-pokedex/assets/35194820/b4a822f0-1af4-4a2e-9963-4e52a9465c40" width="25%">
-    <img src="https://github.com/user-attachments/assets/c96760b7-920a-4686-bcc1-1bda520ff9fe" width="25%">
+    <img src="./readme_assets/favorite.webp" width="25%">
+    <img src="./readme_assets/pikachu.webp" width="25%">
 </div>
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/f478a6f8-3ea2-4e30-950b-87edf79b1cc9" width="25%">
-    <img src="https://github.com/user-attachments/assets/c13c2cfa-e88a-4a41-ba97-753d68cb8877" width="25%">
+    <img src="./readme_assets/venusaur.webp" width="25%">
+    <img src="./readme_assets/charizard.webp" width="25%">
     <img src="./readme_assets/blastoise.webp" width="25%">
 </div>
 
 ## State Management Library
 
-Riverpod
+<div align="center">
+    <img src="./readme_assets/riverpod.png" width="100%">
+</div>
+
+- Riverpod is a powerful and flexible library for state management and hooks.
+- Cache and manage the state of the application using Riverpod.
 
 ## Imported Libraries
 
-- Flutter Riverpod & Hook
-- Flutter Svg
-- Auto Route
-- Freezed
-- Google Fonts
-- Gap
-- Shimmer
-- Http
-- Shared Preferences
+- [Flutter Riverpod & Hook](https://pub.dev/packages/flutter_riverpod)
+- [Flutter Svg](https://pub.dev/packages/flutter_svg)
+  - A library for rendering SVG files
+- [Auto Route](https://pub.dev/packages/auto_route)
+  - A library for generating type-safe routing/navigation
+- [Freezed](https://pub.dev/packages/freezed)
+  - A code generation library for creating immutable classes
+- [Google Fonts](https://pub.dev/packages/google_fonts)
+  - A library that makes it easy to use Google Fonts
+- [Gap](https://pub.dev/packages/gap)
+  - A utility widget that makes it easy to add spacing between widgets
+- [Shimmer](https://pub.dev/packages/shimmer)
+  - A library that adds a shimmering effect to indicate loading states
+- [Http](https://pub.dev/packages/http)
+  - A library that makes it easy to make HTTP requests
 
 ## Architecture
 
@@ -63,4 +74,4 @@ Riverpod
 
 ## Appendix
 
-[Other Mobile Platform](https://github.com/Origogi/mobile-declarative-pokedex-app?tab=readme-ov-file#plateform)
+[Other Mobile Platform (Android Compose/iOS SwiftUi/Flutter)](https://github.com/Origogi/mobile-declarative-pokedex-app?tab=readme-ov-file#plateform)
