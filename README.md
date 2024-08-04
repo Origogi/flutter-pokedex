@@ -34,7 +34,7 @@ This Pokedex app was built using Flutter, allowing users to explore and search f
 <div align="center">
     <img src="https://github.com/user-attachments/assets/f478a6f8-3ea2-4e30-950b-87edf79b1cc9" width="25%">
     <img src="https://github.com/user-attachments/assets/c13c2cfa-e88a-4a41-ba97-753d68cb8877" width="25%">
-    <img src="https://github.com/user-attachments/assets/0009adc9-7856-423e-8adb-25499cb023a6" width="25%">
+    <img src="./readme_assets/blastoise.webp" width="25%">
 </div>
 
 ## State Management Library
