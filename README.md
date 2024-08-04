@@ -37,6 +37,12 @@ This Pokedex app was built using Flutter, allowing users to explore and search f
     <img src="./readme_assets/blastoise.webp" width="25%">
 </div>
 
+## API
+
+![](https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png)
+
+[PokeAPI](https://pokeapi.co/) is a RESTful Pokémon API that provides a lot of Pokémon data, including Pokémon, moves, abilities, types, and more.
+
 ## State Management Library
 
 <div align="center">
